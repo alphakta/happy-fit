@@ -1,0 +1,121 @@
+#body{
+    position: relative;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    
+  }
+  html{
+    height: 100%;
+  }
+.background {
+    height: 100%;
+    width: 100%;
+    padding-bottom: 100px;
+    background-color: #65c0ba;
+}
+
+.titre_catalogue_exercice {
+    text-align: center;
+    padding-top: 20px;
+    margin-bottom: 50px;
+    font-family: "Roboto", Condensed;
+}
+
+.card {
+    font: 1.2em "Roboto", sans-serif;
+    width: 17rem;
+    padding-top: 20px;
+    margin-bottom: 10%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.card-img-top {
+    height: 216px;
+}
+
+@media (max-width: 1100px) {
+    .card {
+        font: 1.2em "Roboto", sans-serif;
+        width: 12rem;
+        padding-top: 20px;
+        margin-bottom: 10%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .card-img-top {
+        height: 150px;
+    }
+}
+
+#barre a {
+    margin: 0 60px;
+}
+
+#barre ul {
+    margin-right: auto;
+    margin-left: auto;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #216583;
+}
+
+#barre li {
+    float: left;
+}
+
+#barre li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font: 1.2em "Roboto", sans-serif;
+    font-style: normal;
+}
+
+#barre li a:hover {
+    background-color: #C4C4C4;
+}
+
+#barre nav {
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+.description_exo {
+    font-size: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-weight: normal;
+}
+
+#foot {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #216583;
+    text-decoration: none;
+    font: 1.2em "Roboto", sans-serif;
+    font-style: normal;
+    text-align: center;
+    margin-bottom: 0;
+    overflow: hidden;
+  }
+
+h5 {
+    font-weight: bold;
+}
+
+.container {
+    /* On ajoute une marge sur les cotés de l'écran */
+    padding-right: 15px;
+    padding-left: 15px;
+    /* Et on centre */
+    margin-right: auto;
+    margin-left: auto;
+}

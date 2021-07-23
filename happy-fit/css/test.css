@@ -1,0 +1,294 @@
+html {
+    background: url(../images/Gestion_comptes/fondInscription.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+body {
+    margin: 0px;
+
+}
+
+#barre a {
+    margin: 0 60px;
+}
+
+#barre ul {
+    margin-right: auto;
+    margin-left: auto;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #216583;
+}
+
+#barre li {
+    float: left;
+}
+#barre img {
+    height: 53px;
+    margin-right: 500px;
+    margin-left: 100px;
+}
+#barre li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font: 1.2em "Roboto", sans-serif;
+    font-style: normal;
+}
+
+#barre li a:hover {
+    background-color: #C4C4C4;
+}
+
+#barre nav {
+    top: 0;
+    right: 0;
+    left: 0;
+    position: absolute;
+}
+
+footer {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #CFFDF8;
+    text-decoration: none;
+    font: 1.2em "Roboto", sans-serif;
+    font-style: normal;
+    text-align: center;
+    overflow: hidden;
+    width: 100%;
+    position:absolute;
+}
+
+#stepProgressBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+.step {
+    text-align: center;
+    margin-right: 15px;
+}
+
+.step-text {
+    margin-bottom: 10px;
+    color: #12cad6;
+}
+
+.bullet {
+    border: 1px solid #12cad6;
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    color: #12cad6;
+    display: inline-block;
+    position: relative;
+    transition: background-color 500ms;
+    line-height: 20px;
+}
+
+.bullet p {
+    width: 20px;
+    margin-top: 1px;
+    font-size: 20px
+}
+
+.bullet.completed {
+    color: white;
+    background-color: #12cad6;
+}
+
+.bullet.completed::after {
+    content: '';
+    position: absolute;
+    right: -145px;
+    bottom: 50%;
+    height: 3px;
+    width: 140px;
+    background-color: #12cad6;
+}
+
+
+/* Base styles and helper stuff */
+
+.hidden {
+    display: none;
+}
+
+button {
+    padding: 5px 10px;
+    border: 1px solid black;
+    transition: 250ms background-color;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+
+button:disabled:hover {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.container {
+    width: 30%;
+    margin: 0 auto;
+    margin-top: 5%;
+    padding: 40px;
+    text-align: center;
+    background-color: #fff6f6;
+    border-radius: 5px;
+    border: none;
+}
+
+.titre {
+    font-size: 30px;
+}
+
+.contenue {
+    display: none;
+}
+
+.encadré input {
+    border: none;
+    border-radius: 5px;
+    height: 20px;
+    width: 300px;
+    margin-bottom: 20px;
+    padding-left: 15px;
+}
+
+
+
+
+
+
+
+
+
+@media all and (max-device-width: 1280px) {
+    /* Vos règles CSS pour les mobiles ici */
+    html {
+        width: 100%;
+    }
+    .container {
+        width: 80%;
+        height: 1670px;
+        padding: 10px;
+        text-align: center;
+        background-color: #fff6f6;
+        border-radius: 5px;
+        border: none;
+    }
+    .titre {
+        font-size: 60px;
+        margin-top: 110px;
+        margin-bottom: 0px
+    }
+    .bullet {
+        border: 1px solid #12cad6;
+        height: 100px;
+        width: 100px;
+        border-radius: 100%;
+        color: #12cad6;
+        display: inline-block;
+        position: relative;
+        transition: background-color 500ms;
+        line-height: 20px;
+    }
+    .bullet p {
+        width: 100px;
+        margin-top: 40px;
+        font-size: 80px
+    }
+    .step-text {
+        margin-bottom: 10px;
+        color: #12cad6;
+        font-size: 30px;
+    }
+    .encadré input {
+        border: none;
+        border-radius: 5px;
+        height: 100px;
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-bottom: 20px;
+        padding-left: 15px;
+        font-size: 40px;
+    }
+    .encadré label {
+        font-size: 35px;
+    }
+    .encadré p {
+        font-size: 40px;
+    }
+    #main button {
+        height: 80px;
+        width: 200px;
+        font-size: 35px;
+        margin-left: 20px;
+    }
+    .text-center {
+        font-size: 50px;
+    }
+    .bullet.completed::after {
+        content: '';
+        position: absolute;
+        right: -100%;
+        bottom: 50%;
+        height: 3px;
+        width: 100%;
+        background-color: #12cad6;
+    }
+    #type {
+        height: 60px;
+        width: 40%;
+        font-size: 40px;
+        
+    }
+    #sexe {
+        height: 60px;
+        width: 40%;
+        font-size: 40px;
+        
+    }
+    #barre img {
+        margin-left: 20px;
+        margin-right: 0px;
+    }
+    #barre li a {
+        font: 40px "Roboto", sans-serif;
+        margin-left: 10px;
+        margin-right: 10px;
+
+    }
+
+    .select_resp {
+        height: 10px;
+        width: 10%;
+        font-size: 15px;
+    }
+
+    footer {
+        font-size: 40px;
+    }
+}

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+		<script src="app.js"></script>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width">
+		<link rel="manifest" href="manifest.webmanifest">
+        <title>Calories</title>
+        <script src="/happyfit-2021/api/get.js"></script>
+        <script src="/happyfit-2021/api/createLocalDatabase.js"></script>
+    
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="src/pushbar.css">
+	<link rel="stylesheet" type="text/css" href="src/index-css.css">
+    <script src="http://code.jquery.com/jquery-3.5.1.js"> </script>
+        <script>
+            function valider(form) {
+                var activite=document.form.activite.value
+                var duree=document.form.duree.value
+                var sexe=document.form.sexe.value
+                var age=document.form.age.value
+                var poids=document.form.poids.value
+                var taille=document.form.taille.value
+                if(sexe == "femme") {
+                    var coefSexe = -161
+                }
+                if(sexe == "homme"){
+                    var coefSexe = 5
+                }
+                var metabolismeDeBase = 10 * poids + 6.25 * taille - 5 * age + coefSexe
+                var calories = (duree * metabolismeDeBase * activite)/1440
+                //alert("KiloCalories consommées : " + Math.round(calories,0))
+                var ancienP=document.getElementsByTagName("p")[0]
+                var nouveauP=document.createElement("p")
+                var reponse="Vous avez consommé " + Math.round(calories,0) + " Kilocalories durant l'exercice"
+                var node=document.createTextNode(reponse)
+                nouveauP.appendChild(node)
+                document.getElementsByTagName("body")[0].replaceChild(nouveauP, ancienP)
+                nouveauP.style.textAlign = "center";
+            }
+        </script>
+    </head>
+    <link href="../css/style_final.css" rel="stylesheet">
+   </head>
+   
+ 
+    <body>
+	<!-- navigation -->
+	<aside data-pushbar-id="left" data-pushbar-direction="left">
+		<div class="titleBar">
+			<span data-pushbar-close class="close push_right">
+			</span>
+			<a href="index.html"> Happy'Fit </a>
+		</div>
+		<ul class="menu">
+            <li><a href="/happyfit-2021/FINAL/Vue/catalogue_exercice.html">Catalogue exercices</a></li>
+            <li><a href="/happyfit-2021/FINAL/Vue/catalogue_programme.html">Programmes sportifs</a></li>
+            <li><a href="/happyfit-2021/FINAL/Vue/conseil.html">Nutrition</a></li>
+            <li><a href="/happyfit-2021/FINAL/Vue/suivigraph.html">Suivi activité</a></li>
+            <li><a href="/happyfit-2021/FINAL/Vue/espace_membre.html">Espace membre</a></li>
+            <li><a href="/happyfit-2021/FINAL/Vue/calories.html">Calories dépensées</a></li>
+            <li><a href="/happyfit-2021/FINAL/Vue/imc.html">Calculateur IMC</a></li>
+            <li><a href="/happyfit-2021/FINAL/Vue/map.html">Carte</a></li>
+            <li><a href="/happyfit-2021/FINAL/Vue/index2.html">Se déconnecter</a></li>
+            <!-- ajouter des elements de navigation ici  -->
+        </ul>
+	</aside>
+
+	<!-- NE PAS TOUCHER  -->
+	<div><button data-pushbar-target="left" class="animBarre">
+			<div class="barre"></div>
+			<div class="barre"></div>
+			<div class="barre"></div>
+		</button>
+	</div>
+	<!-- NE PAS TOUCHER  -->
+<!-- navigation -->
+        <h1 style="text-align: center;">Calcul des calories dépensées</h1>
+        <div id="calories">
+        <form name="form">
+            <label for="activite">Activité effectuée :</label>
+            <select name="activite">
+                <option value="">--Choisir l'activité pratiquée--</option>
+                <option value="5.3">Abattre des arbres</option>
+                <option value="3.5">Abdos</option>
+                <option value="4">Accrobranche</option>
+                <option value="5.8">Aller au travail en vélo</option>
+                <option value="5.3">Arts martiaux</option>
+                <option value="6">Athlétisme</option>
+                <option value="2.8">Aviron</option>
+                <option value="12">Aviron (compétition)</option>
+                <option value="5.8">Aviron (rapide)</option>
+                <option value="5.5">Badminton</option>
+                <option value="7">Badminton (compétition)</option>
+                <option value="7">Ballon-balai</option>
+                <option value="3.5">Base jump</option>
+                <option value="2.5">Baseball</option>
+                <option value="6">Basketball</option>
+                <option value="8">Basketball (compétition)</option>
+                <option value="8">Beach-volley</option>
+                <option value="10">Biathlon</option>
+                <option value="2.5">Billard</option>
+                <option value="3.8">Bowling</option>
+                <option value="12.8">Boxe (compétition)</option>
+                <option value="5.5">Boxe (punching bag)</option>
+                <option value="7.8">Boxe avec sparring-partner</option>
+                <option value="5.3">Boxe thaïlandaise</option>
+                <option value="3.5">Bricolage</option>
+                <option value="5">Chasse</option>
+                <option value="6">Cheerleading</option>
+                <option value="4.5">Couper du bois</option>
+                <option value="8.5">Course automobile</option>
+                <option value="5">Course de chiens de traîneaux</option>
+                <option value="11">Course à pied (11 km/h)</option>
+                <option value="11.8">Course à pied (13 km/h)</option>
+                <option value="12.8">Course à pied (14,5 km/h)</option>
+                <option value="16">Course à pied (18 km/h)</option>
+                <option value="19">Course à pied (19,0 km/h)</option>
+                <option value="19.8">Course à pied (21 km/h)</option>
+                <option value="23">Course à pied (22 km/h)</option>
+                <option value="9.8">Course à pied (9,5 km/h)</option>
+                <option value="4.8">Criquet</option>
+                <option value="3.3">Croquet</option>
+                <option value="4">Curling</option>
+                <option value="7.3">Danse (aérobic)</option>
+                <option value="5">Danse (ballet, moderne, jazz)</option>
+                <option value="6.5">Danse (cumbia)</option>
+                <option value="7.3">Danse (merengue)</option>
+                <option value="4.5">Danse (salsa, flamenco, swing)</option>
+                <option value="3">Danse (tango, mambo, cha-cha)</option>
+                <option value="3">Danse (valse, foxtrot, tango)</option>
+                <option value="7.8">Danse : disco, folk, polka</option>
+                <option value="3.5">Danse des Caraïbes</option>
+                <option value="4.5">Danses culturelles</option>
+                <option value="3.5">Deltaplane</option>
+                <option value="5">Descente en rafting</option>
+                <option value="4.3">Entraînement en circuit, cardio</option>
+                <option value="6">Entraînement fractionné</option>
+                <option value="6">Ergomètre</option>
+                <option value="5.8">Escalade</option>
+                <option value="8">Escalade (compétition)</option>
+                <option value="6">Escrime</option>
+                <option value="2.3">Exercices TV/vidéo</option>
+                <option value="8">Exercices d'endurance</option>
+                <option value="5.5">Exercices de gym</option>
+                <option value="2.8">Exercices thérapeutiques</option>
+                <option value="3.8">Exercices à la maison</option>
+                <option value="8.5">Faire du VTT</option>
+                <option value="4">Faire du canoë</option>
+                <option value="12">Faire du canoë (compétition)</option>
+                <option value="3.3">Faire du canoë en eaux vives</option>
+                <option value="6">Faire du jet ski</option>
+                <option value="12.5">Faire du kajak</option>
+                <option value="9">Faire du rameur</option>
+                <option value="7">Faire du roller</option>
+                <option value="12.3">Faire du roller (compétition)</option>
+                <option value="3.5">Faire du trampoline</option>
+                <option value="6.4">Faire du vélo</option>
+                <option value="4">Faire du vélo (loisir)</option>
+                <option value="7.8">Faire du vélo à grande vitesse</option>
+                <option value="3.3">Faire le ménage, tâches ménagères</option>
+                <option value="4">Fléchettes</option>
+                <option value="7">Foot</option>
+                <option value="10">Foot (compétition)</option>
+                <option value="4">Football</option>
+                <option value="8">Football (compétition)</option>
+                <option value="3.5">Fractions</option>
+                <option value="3">Frisbee</option>
+                <option value="4.8">Golf</option>
+                <option value="3.8">Gymnastique</option>
+                <option value="5.3">Gymnastique aquatique</option>
+                <option value="8">Handball</option>
+                <option value="10">Handball (compétition)</option>
+                <option value="2.5">Hatha yoga</option>
+                <option value="7.8">Hockey</option>
+                <option value="7.8">Hockey sur gazon</option>
+                <option value="8">Hockey sur glace</option>
+                <option value="10">Hockey sur glace (compétition)</option>
+                <option value="6">Jardinage (gros travaux)</option>
+                <option value="3">Jardinage (petits travaux)</option>
+                <option value="4">Jardinage (travaux faciles)</option>
+                <option value="6">Jazzercise</option>
+                <option value="3.8">Jeu vidéo, aérobic</option>
+                <option value="7.2">Jeu vidéo, danse</option>
+                <option value="7">Jogging</option>
+                <option value="14.5">Jogging (16 km/h)</option>
+                <option value="8.3">Jogging (8 km/h)</option>
+                <option value="4">Jongler</option>
+                <option value="4">Jouer à la balle aki</option>
+                <option value="5.3">Judo</option>
+                <option value="5.3">Jujitsu</option>
+                <option value="5.3">Karaté</option>
+                <option value="5.3">Kick-boxing</option>
+                <option value="7">Kickball</option>
+                <option value="11">Kitesurf</option>
+                <option value="8">Lacrosse</option>
+                <option value="2">Laver une voiture</option>
+                <option value="6">Lutte</option>
+                <option value="4.3">Marche</option>
+                <option value="6.5">Marche athlétique</option>
+                <option value="4.8">Marche nordique</option>
+                <option value="9.5">Marche nordique, rapide</option>
+                <option value="6">Marche rapide (6,5 km/h)</option>
+                <option value="3">Mini-golf</option>
+                <option value="5">Monocycle</option>
+                <option value="4">Monter les escaliers</option>
+                <option value="8.8">Monter les escaliers (rapide)</option>
+                <option value="15">Monter les escaliers, course à pied</option>
+                <option value="3.5">Motocross</option>
+                <option value="8.5">Mountain bike</option>
+                <option value="14">Mountain bike (compétition)</option>
+                <option value="6">Musculation</option>
+                <option value="1">Méditation</option>
+                <option value="6">Nage libre</option>
+                <option value="4.8">Nage sur le dos</option>
+                <option value="9.5">Nage sur le dos (compétition)</option>
+                <option value="5.8">Natation</option>
+                <option value="5.3">Natation (brasse)</option>
+                <option value="13.8">Natation (papillon)</option>
+                <option value="9.3">Natation rapide</option>
+                <option value="10.3">Natation, brasse (compétition)</option>
+                <option value="8.3">Natation, crawl (45 m/min)</option>
+                <option value="10">Natation, crawl (70 m/min)</option>
+                <option value="3">Palets</option>
+                <option value="3.5">Parachutisme</option>
+                <option value="5.5">Patin à glace</option>
+                <option value="9">Patin à glace (compétition)</option>
+                <option value="7.5">Patin à roulettes</option>
+                <option value="12">Patinage artistique</option>
+                <option value="6.4">Pelleter de la neige</option>
+                <option value="12">Pelote basque</option>
+                <option value="3">Pilates</option>
+                <option value="4">Ping pong</option>
+                <option value="11">Planche à voile</option>
+                <option value="13.5">Planche à voile (compétition)</option>
+                <option value="7">Plongée</option>
+                <option value="11.8">Plongée sous-marine</option>
+                <option value="8">Polo</option>
+                <option value="3.5">Pompes</option>
+                <option value="2">Pranayama yoga (exercices de respiration)</option>
+                <option value="3">Promenade</option>
+                <option value="3.5">Promener le chien</option>
+                <option value="4">Pédalo</option>
+                <option value="1.8">Pêche à la ligne</option>
+                <option value="3">Qi Gong</option>
+                <option value="7">Rameur (100 watts)</option>
+                <option value="8.5">Rameur (150 watts)</option>
+                <option value="12">Rameur (200 watts)</option>
+                <option value="4.3">Randonnée</option>
+                <option value="6.3">Randonnée (niveau avancé)</option>
+                <option value="7.7">Raquettes à neige</option>
+                <option value="9.8">Roller (rapide)</option>
+                <option value="6.3">Rugby</option>
+                <option value="8.3">Rugby (compétition)</option>
+                <option value="3.5">Saut à l'élastique</option>
+                <option value="8.8">Saut à la corde</option>
+                <option value="11.8">Saut à la corde (rapide)</option>
+                <option value="7">Saut à ski</option>
+                <option value="5">Skate</option>
+                <option value="6">Skate (compétition)</option>
+                <option value="9">Ski (compétition)</option>
+                <option value="7">Ski alpin</option>
+                <option value="6.8">Ski de fond</option>
+                <option value="6">Ski nautique</option>
+                <option value="6">Slimnastics</option>
+                <option value="5">Snorkelling</option>
+                <option value="8">Snowboard (compétition)</option>
+                <option value="4.3">Snowboard, alpin</option>
+                <option value="4">Softball</option>
+                <option value="9.7">Squash</option>
+                <option value="6.5">Step aérobique</option>
+                <option value="2.3">Stretching</option>
+                <option value="3">Surf</option>
+                <option value="5">Surf (compétition)</option>
+                <option value="5.3">Tae Bo</option>
+                <option value="5.3">Taekwondo</option>
+                <option value="3">Tai-chi-chuan</option>
+                <option value="9">Tapis de course</option>
+                <option value="7.3">Tennis</option>
+                <option value="8">Tennis (en simple)</option>
+                <option value="6">Tennis en double</option>
+                <option value="4.3">Tir à l'arc</option>
+                <option value="8">Ultimate</option>
+                <option value="3">Voile</option>
+                <option value="3">Volleyball</option>
+                <option value="6">Volleyball (compétition)</option>
+                <option value="3">Volleyball aquatique</option>
+                <option value="8">Vélo de course</option>
+                <option value="10">Vélo de course (compétition)</option>
+                <option value="5">Vélo ellyptique</option>
+                <option value="6.8">Vélo en salle, cardio-training (100 watts)</option>
+                <option value="8.8">Vélo en salle, cardio-training (150 watts)</option>
+                <option value="11">Vélo en salle, cardio-training (200 watts)</option>
+                <option value="3.5">Vélo en salle, cardio-training (50 watts)</option>
+                <option value="4.8">Vélo en salle, cardio-training (80 watts)</option>
+                <option value="14">Vélo en salle, cardio-training (plus de 200 watts)</option>
+                <option value="6">Wakeboard</option>
+                <option value="7">Wallyball</option>
+                <option value="10">Water polo</option>
+                <option value="2.3">Wii Fit</option>
+                <option value="2.7">Yoga</option>
+                <option value="3.3">Yoga (salutation au soleil)</option>
+                <option value="4">Yoga dynamique (vinyasa)</option>
+                <option value="6.5">Zumba</option>
+                <option value="5.5">Équitation</option>
+                <option value="9">Équitation (saut)</option>
+                <option value="5.8">Équitation (trot)</option>
+                <option value="7.3">Équitation, galop</option>
+            </select><br><br> <!-- Liste récupérée sur https://www.yazio.com/fr/webmaster -->
+
+            <label for="duree">Durée (minutes) :</label>
+            <input type="number" name="duree" min="1" max="10080" step="1"><br><br>
+
+            <label for="sexe">Sexe :</label>
+            <input type="radio" id="inputSexeHomme" name="sexe" value="homme">
+            <label for="homme">Homme</label>
+            <input type="radio" id="inputSexeFemme" name="sexe" value="femme">
+            <label for="femme">Femme</label><br><br>
+
+            <label for="age">Age :</label>
+            <input type="number" id="inputAge" name="age" min="1" max="200" step="1"><br><br>
+
+            <label for="poids">Poids (kg) :</label>
+            <input type="number" id="inputPoids" name="poids" min="1" max="999" step="0.1"><br><br>
+
+            <label for="taille">Taille (cm) :</label>
+            <input type="number" id="inputTaille" name="taille" min="1" max="300" step="1"><br><br>
+
+            <input type="button" value="Valider" onClick="valider(form)">
+        </form>
+    </div>
+        <p></p>
+        <script>
+            var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB || window.shimIndexedDB
+
+            // Open (or create) the database
+            var open = indexedDB.open("Database", 3)
+
+            // Create the schema
+            open.onupgradeneeded = function () {
+                var db = open.result
+                var store = db.createObjectStore("Utilisateur", {
+                    keyPath: "id"
+                })
+                //var index = store.createIndex("NameIndex", ["name.last", "name.first"])
+            }
+
+            open.onsuccess = function () {
+                // Start a new transaction
+                var db = open.result;
+                var tx = db.transaction("Utilisateur", "readwrite")
+                var store = tx.objectStore("Utilisateur")
+                //var index = store.index("NameIndex")
+                
+                store.put({
+                    id: 1,
+                    //name: {
+                    //    first: "John",
+                    //    last: "Doe"
+                    //},
+                    poids: 100,
+                    taille: 190,
+                    dateNaissance: "1998-07-12",
+                    sexe: "homme"
+                }) 
+
+                var getUser = store.get(1)
+                
+                getUser.onsuccess = function () {
+                    var getSexe = getUser.result.sexe
+                    switch (getSexe) {
+                        case "homme":
+                            var inputSexeHomme = document.getElementById("inputSexeHomme")
+                            inputSexeHomme.checked = true
+                            break
+                        case "femme":
+                            var inputSexeFemme = document.getElementById("inputSexeFemme")
+                            inputSexeFemme.checked = true
+                            break
+                    }
+                    var aujourdhui = new Date();
+                    var getDateNaissance = getUser.result.dateNaissance
+                    var dateNaissance = new Date(getDateNaissance)
+                    var age = aujourdhui.getFullYear() - dateNaissance.getFullYear();
+                    var m = aujourdhui.getMonth() - dateNaissance.getMonth();
+                    if (m < 0 || (m === 0 && aujourdhui.getDate() < dateNaissance.getDate())) {
+                        age = age - 1;
+                    }
+                    var inputAge = document.getElementById("inputAge")
+                    inputAge.setAttribute("value", age)
+                    var getPoids = getUser.result.poids
+                    var inputPoids = document.getElementById("inputPoids")
+                    inputPoids.setAttribute("value", getPoids)
+                    var getTaille = getUser.result.taille
+                    var inputTaille = document.getElementById("inputTaille")
+                    inputTaille.setAttribute("value", getTaille)
+                }
+            }
+        </script>
+        	<footer>
+		<div id="foot">
+			<p>Happy Fit - 2021 </p>
+			<p>IUT D'orsay</p>
+		</div>
+	</footer>	
+
+
+	<script type="text/javascript" src="src/pushbar.js"></script>
+	<script>
+		const pushbar = new Pushbar({
+		blur: true,
+		overlay: true,
+		});
+	</script>
+	<script>
+		var typed = new Typed(".typed", {
+		strings: [
+			"A vos marques?",
+			"Prêt?",
+			"Partez !",
+			"Rejoignez l'aventure !",
+			"Rejoignez Happy Fit !"
+		],
+		backSpeed: 10,
+		typeSpeed: 65,
+		startDelay: 0,
+		});
+	</script>	
+    </body>
+</html>

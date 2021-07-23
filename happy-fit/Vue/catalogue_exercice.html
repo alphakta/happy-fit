@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<script src="/happyfit-2021/api/get.js"></script>
+<script src="/happyfit-2021/api/createLocalDatabase2.js"></script>
+
+<head>
+  <script src="app.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link rel="stylesheet" href="/happyfit-2021/FINAL/css/style_catalogue_exercice.css" />
+  <title>Catalogue exercices</title>
+  <meta name="viewport" content="width=device-width">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link rel="stylesheet" type="text/css" href="src/pushbar.css">
+  <link rel="stylesheet" type="text/css" href="src/index-css.css">
+  <script src="http://code.jquery.com/jquery-3.5.1.js"> </script>
+</head>
+
+<body>
+  <div class="background">
+    <!-- navigation -->
+    <aside data-pushbar-id="left" data-pushbar-direction="left">
+      <div class="titleBar">
+        <span data-pushbar-close class="close push_right">
+        </span>
+        <a href="index2_c.html"> Happy'Fit </a>
+      </div>
+
+      <ul class="menu">
+				<li><a href="/happyfit-2021/FINAL/Vue/catalogue_exercice.html">Catalogue exercices</a></li>
+				<li><a href="/happyfit-2021/FINAL/Vue/catalogue_programme.html">Programmes sportifs</a></li>
+				<li><a href="/happyfit-2021/FINAL/Vue/conseil.html">Nutrition</a></li>
+				<li><a href="/happyfit-2021/FINAL/Vue/suivigraph.html">Suivi activité</a></li>
+				<li><a href="/happyfit-2021/FINAL/Vue/espace_membre.html">Espace membre</a></li>
+				<li><a href="/happyfit-2021/FINAL/Vue/calories.html">Calories dépensées</a></li>
+				<li><a href="/happyfit-2021/FINAL/Vue/imc.html">Calculateur IMC</a></li>
+				<li><a href="/happyfit-2021/FINAL/Vue/map.html">Carte</a></li>
+				<li><a href="/happyfit-2021/FINAL/Vue/index2.html">Se déconnecter</a></li>
+				<!-- ajouter des elements de navigation ici  -->
+			</ul>
+    </aside>
+
+    <!-- NE PAS TOUCHER  -->
+    <div><button data-pushbar-target="left" class="animBarre">
+        <div class="barre"></div>
+        <div class="barre"></div>
+        <div class="barre"></div>
+      </button>
+    </div>
+    <!-- NE PAS TOUCHER  -->
+    <!-- navigation -->
+
+    <div id="container" class="container">
+      <div class="titre_catalogue_exercice">
+        <h1>Catalogue exercices</h1>
+      </div>
+      <!-- Content here -->
+
+      <div id="card-deck" class="row row-cols-1 row-cols-md-3 g-4">
+        <script type="text/javascript">
+          var tab_recup = []
+          var rep = sessionStorage.getItem("rep_btn_prog")
+          get("Exercice").then(function (result) {
+            console.log(result)
+            // This works on all devices/browsers, and uses IndexedDBShim as a final fallback 
+            var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB || window.shimIndexedDB;
+
+            // Open (or create) the database
+            var open = indexedDB.open("Database", 3);
+
+            open.onsuccess = function () {
+              // Start a new transaction
+              var db = open.result;
+              var tx = db.transaction("Exercice", "readwrite");
+              var store = tx.objectStore("Exercice");
+              var index = store.index("ExerciceIndex");
+
+              // Récupérer toutes les données de la base de données sans paramètre
+              var getExercice = index.getAll();
+              getExercice.onsuccess = function () {
+                getExercice.result.forEach(element => {
+                  creer_exercice(element.nomExercice, element.photo, element.descriptionExercice)
+                });
+              };
+
+              // Close the db when the transaction is done
+              tx.oncomplete = function () {
+                db.close();
+              };
+
+            }
+          });
+          function creer_exercice(nom, photo, desc) {
+            //Création d'un élément div "col"
+            var div_col = document.createElement("div")
+            div_col.className = "col"
+            //Ajout de la div dans la div card-deck
+            document.getElementById("card-deck").appendChild(div_col)
+            //Création d'un élément div "card"
+            var div_card = document.createElement("div")
+            div_card.className = "card"
+            //Ajout de la div dans le div card-deck
+            div_col.appendChild(div_card)
+            //Création d'un élément img "img"
+            var img = document.createElement("img")
+            img.className = "card-img-top"
+            img.src = photo
+            //Ajout de l'img dans la div "card"
+            div_card.appendChild(img)
+            //Création d'un élément div
+            var div_card_body = document.createElement("div")
+            div_card_body.className = "card-body"
+            //Ajout de la div dans la div "card"
+            div_card.appendChild(div_card_body)
+            //Création d'un élément titre h5
+            var h5 = document.createElement("h5")
+            h5.className = "card-title"
+            //Ajout h5 dans la div "card-body"
+            div_card_body.appendChild(h5)
+            //Ajout du contenu de h5
+            h5.textContent = nom
+            //création d'un élément p 
+            var p_prog = document.createElement("p")
+            p_prog.className = "card-text"
+            p_prog.textContent = desc
+            //ajout p_prog dans div_card_body
+            div_card_body.appendChild(p_prog)
+            if (rep == "true") {
+              // Création d'un élément a
+              var btn_ajout = document.createElement("a")
+              btn_ajout.href = ""
+              btn_ajout.className = "btn btn-outline-danger"
+              btn_ajout.id = "right"
+              btn_ajout.textContent = "Ajouter"
+              //Ajout de a dans la div "card-body"
+              div_card_body.appendChild(btn_ajout)
+            }
+          }
+        </script>
+      </div>
+      <script type="text/javascript">
+        get("LigneProgrammeUtilisateur").then(function (result) {
+          console.log(result)
+          // This works on all devices/browsers, and uses IndexedDBShim as a final fallback 
+          var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB || window.shimIndexedDB;
+
+          // Open (or create) the database
+          var open = indexedDB.open("Database", 3);
+
+          open.onsuccess = function () {
+            // Start a new transaction
+            var db = open.result;
+            var tx = db.transaction("LigneProgrammeUtilisateur", "readwrite");
+            var store = tx.objectStore("LigneProgrammeUtilisateur");
+            var indexLigneProgUtil = store.index("IndexLigneProgUtil");
+
+            // Récupérer toutes les données de la base de données sans paramètre
+            var getLigneProgUtil = indexLigneProgUtil.getAll();
+            getLigneProgUtil.onsuccess = function () {
+              getLigneProgUtil.result.forEach(element => {
+                crea_ligne_tab(tab_recup, element.nbRepProUtil)
+              });
+            };
+            // Close the db when the transaction is done
+            tx.oncomplete = function () {
+              db.close();
+            };
+
+          }
+        });
+        if (rep == "true") {
+          //création d'un élément table
+          var tab = document.createElement("table")
+          tab.className = "table table-dark table-striped"
+          //ajout tab dans container
+          document.getElementById("container").appendChild(tab)
+          //création d'un élément thead
+          var thead = document.createElement("thead")
+          //ajout thead dans tab
+          tab.appendChild(thead)
+          //creation d'un élément tr
+          var tr = document.createElement("tr")
+          //ajout tr dans thead
+          thead.appendChild(tr)
+          //création d'un élément th
+          var th1 = document.createElement("th")
+          th1.scope = "col"
+          th1.textContent = "Nom Exercice"
+          //ajout th1 dans tr
+          tr.appendChild(th1)
+          var th3 = document.createElement("th")
+          th3.scope = "col"
+          tr.appendChild(th3)
+          var tbody = document.createElement("tbody")
+          tab.appendChild(tbody)
+          /*var btn_supp = document.createElement("button")
+          btn_supp.type = "button" 
+          btn_supp.className = "btn btn-danger"
+          btn_supp.textContent = "Supprimer"
+          th3.appendChild(btn_supp)*/
+        }
+        function crea_ligne_tab(nomExercice) {
+          var trbody = document.createElement("tr")
+          tbody.appendChild(trbody)
+          var td1 = document.createElement("td")
+          td1.textContent = nomExercice
+          trbody.appendChild(td1)
+          var td3 = document.createElement("td")
+          trbody.appendChild(td3)
+          var btn_supp = document.createElement("button")
+          btn_supp.type = "button"
+          btn_supp.className = "btn btn-danger"
+          btn_supp.textContent = "Supprimer"
+          td3.appendChild(btn_supp)
+        }
+
+      </script>
+    </div>
+  </div>
+  <footer>
+    <div id="foot">
+      <p>Happy Fit - 2021 </p>
+      <p>IUT D'orsay</p>
+    </div>
+  </footer>
+
+
+  <script type="text/javascript" src="src/pushbar.js"></script>
+  <script>
+    const pushbar = new Pushbar({
+      blur: true,
+      overlay: true,
+    });
+  </script>
+</body>
+
+</html>

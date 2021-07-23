@@ -1,0 +1,360 @@
+@font-face {
+    font-family: Mystical;
+    src: url(../src/youth.ttf);
+   }
+
+@supports ( -webkit-touch-callout : none) {
+    
+    .bg_site {
+    background-attachment:scroll
+    }
+
+}
+    
+@supports not ( -webkit-touch-callout : none) {
+    
+    .bg_site {
+    background-attachment: fixed;
+    }
+
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.bg_site{
+    background: url(../images/test.png) no-repeat center fixed; 
+    -webkit-background-size: 100%; 
+    -moz-background-size: 100%; 
+    -o-background-size: 100%; 
+    background-size: 100%; 
+    -webkit-background-size: cover; 
+    -moz-background-size: cover; 
+    -o-background-size: cover; 
+    background-size: cover;
+    font-family: Montserrat;
+    text-shadow: 4px 4px 13px rgba(0,0,0,0.6);
+}
+
+.presa{
+    font-family: 'Mystical';
+    display: flex;
+    font-size: 600%;
+    padding-top: 2em;
+    color: white;
+    margin: 0 auto;
+    justify-content: center;
+    margin-bottom: 2em;
+}
+
+.subDiv1{
+    display: flex;
+    color: white;
+    margin: 0 auto;
+    justify-content: center;    
+    background-color: #30475e;
+    font-size: 115%;
+    padding-bottom: 2em;
+    padding-left: 1em;
+
+}
+.subDiv11{
+    display: flex;
+    color: white;
+    padding-left: 10em;
+    background-color: #30475e;
+    padding-top: 2em;
+    padding-bottom: 1em;
+
+}
+.subDiv2{
+    display: flex;
+    color: white;
+    margin: 0 auto;
+    justify-content: center;    
+    background-color: #222831;
+    font-size: 115%;
+    padding-bottom: 2em;
+
+}
+.subDiv22{
+    display: flex;
+    color: white;
+    padding-left: 10em;
+    background-color: #222831;
+    padding-top: 2em;
+    padding-bottom: 1em;
+
+}.subDiv3{
+    display: flex;
+    color: white;
+    margin: 0 auto;
+    justify-content: center;    
+    background-color: #dddddd;
+    font-size: 115%;
+    padding-bottom: 2em;
+    color: black;
+    text-shadow: 4px 4px 13px rgba(255, 255, 255, 0.6);
+}
+.subDiv33{
+    display: flex;
+    color: black;
+    padding-left: 10em;
+    background-color: #dddddd;
+    padding-top: 2em;
+    padding-bottom: 1em;
+    text-shadow: 4px 4px 13px rgba(255, 255, 255, 0.6);
+
+
+}
+
+
+.SectionTitle{
+    font-size: 180%;
+    text-shadow: 4px 4px 13px rgba(0,0,0,0.6);
+
+}
+
+
+.projIcon{
+    max-width: 8%;
+    height: auto;
+    margin: 1em;
+}
+.arrow {
+    box-sizing: border-box;
+    height: 5vw;
+    width: 5vw;
+    border-style: solid;
+    border-color: white;
+    border-width: 0px 1px 1px 0px;
+    transform: rotate(45deg);
+    transition: border-width 150ms ease-in-out;
+    margin-bottom: 7em;
+  }
+  
+  .arrow:hover {
+    border-bottom-width: 4px;
+    border-right-width: 4px;
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 6em;
+
+  }
+  
+  .projTitle{
+      font-size: 130%;
+      text-shadow: 4px 4px 13px rgba(0,0,0,0.6);
+      text-decoration: underline;
+      margin-bottom: 1em;
+
+  }
+  .separate{
+    margin: 2em;
+  }
+
+.presa2{
+    font-family: 'Mystical';
+    display: flex;
+    font-size: 600%;
+    color: white;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.subDiv222{
+    display: flex;
+    color: white;
+    margin: 0 auto;
+    justify-content: center;    
+    background-color: #222831;
+    font-size: 115%;
+    padding-bottom: 2em;
+    height: 100%; width: auto;
+
+}
+.subDiv2222{
+    display: flex;
+    color: white;
+    padding-left: 10em;
+    background-color: #222831;
+
+    padding-bottom: 1em;
+    height: 100%; width: auto;
+}
+
+.imgDesc{
+    max-width: 50%;
+    height: auto;
+    filter: drop-shadow(0 0 0.75rem black);
+}
+.imgDescPlac{
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    margin-bottom: 4em;
+    margin-top: 4em;
+
+}
+
+a{
+    text-decoration: underline;
+    color: white;
+}
+@media only screen and (max-height: 1800px) {
+    .imgDescPlac{
+        margin-bottom: 32em;
+    }
+}
+@media only screen and (max-height: 1600px) {
+    .imgDescPlac{
+        margin-bottom: 20em;
+    }
+}
+@media only screen and (max-height: 1400px) {
+    .imgDescPlac{
+        margin-bottom: 7em;
+    }
+}
+@media only screen and (max-height: 1300px) {
+    .imgDescPlac{
+        margin-bottom: 4em;
+    }
+}
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 1150px) {
+    .subDiv1{
+        font-size: 100%;
+    }
+    .subDiv2{
+        font-size: 100%;
+    }
+    .subDiv3{
+        font-size: 100%;
+    }
+
+    .subDiv222{
+        font-size: 100%;
+    }
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .subDiv1{
+        font-size: 90%;
+    }
+    .subDiv2{
+        font-size: 90%;
+    }
+    .subDiv3{
+        font-size: 90%;
+    }
+
+
+    .SectionTitle{
+        font-size: 150%;    
+    }
+
+    .subDiv222{
+        font-size: 95%;
+    }
+      
+  .projTitle{
+    font-size: 110%;
+  }
+}
+
+
+@media only screen and (max-width: 850px) {
+    .subDiv1{
+        font-size: 70%;
+        padding-left: 2em;
+    }
+    .subDiv2{
+        font-size: 70%;
+    }
+    .subDiv3{
+        font-size: 70%;
+    }
+    
+    .subDiv11{
+        padding-left: 2em;
+    }
+    .subDiv22{
+        padding-left: 2em;
+    }
+    .subDiv33{
+        padding-left: 2em;
+    }
+    
+    .subDiv222{
+        font-size: 80%;
+    }
+
+
+    .presa{
+        font-size: 500%;
+    }
+    .presa2{
+        font-size: 500%;
+    }
+}
+
+
+@media only screen and (max-width: 680px) {
+    .presa{
+        font-size: 400%;
+        margin-bottom: 5em;
+    }
+    .presa2{
+        font-size: 400%;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .presa{
+        font-size: 350%;
+    }
+    .presa2{
+        font-size: 350%;
+    }
+    .arrow {
+        height: 9vw;
+        width: 9vw;
+    }
+}
+
+@media only screen and (max-width: 478px) {
+    .presa{
+        font-size: 330%;
+        margin-bottom: 5.5em;
+
+    }
+    .presa2{
+        font-size: 330%;
+
+    }
+    .imgDesc{
+        max-width: 80%;
+        height: auto;
+        margin-bottom: 7em;
+    }
+
+    .bg_site{
+        background: url(../images/test-mob.png) 50% 0 no-repeat fixed;
+        background-size: cover;
+    }
+}

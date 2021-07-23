@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+		<script src="app.js"></script>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width">
+		<link rel="manifest" href="manifest.webmanifest">
+        <title>Echange</title>
+    </head>
+<body>
+    <script type="text/javascript" src="recompenses.js"></script>
+    
+        <p>Vous pouvez echanger vos biceps avec ces recompenses</p>
+        <table class="tableEchange">
+            <tr>
+                <td>Les recompenses</td>
+                <td>prix/poids</td>
+                <td>en echange de...</td>
+                <td>echanger</td>
+            </tr>
+            <tr>
+                
+                <td><img src="carteGoSport.png" alt="" height="150px" width="250px"/> </td>
+                <td>10€</td>
+                <td>1000 <img src=biceps.png alt="" height="45px" width="45px"/></td>
+                <td><button id="echangerGoSport" >echanger</button></td>
+            </tr>
+            <tr>
+                <td><img src="carteDecathlon.png" alt=""height="150px" width="250px"/> </td>
+                <td>10€</td>
+                <td>1000 <img src=biceps.png alt="" height="45px" width="45px"/></td>
+                <td><button id="echangerDecath" >echanger</button></td>
+            </tr>
+            <tr>
+                <td><img src="carteFootLocker.png" alt=""height="150px" width="250px"/> </td>
+                <td>10€</td>
+                <td>1000 <img src=biceps.png alt="" height="45px" width="45px"/></td>
+                <td><button id="echangerFoot" >echanger</button></td>
+            </tr>
+            <tr>
+                <td><img src="carteCourir.png" alt="" height="150px" width="250px"/> </td>
+                <td>10€</td>
+                <td>1000 <img src=biceps.png alt="" height="45px" width="45px"/></td>
+                <td><button id="echangerCourir" >echanger</button></td>
+            </tr>
+            <tr>
+                <td><img src="Whey.png" alt="" height="200px" width="250px"/> </td>
+                <td>100g</td>
+                <td>2000 <img src=biceps.png alt="" height="45px" width="45px"/></td>
+                <td><button id="echangerWhey" >echanger</button></td>
+            </tr>
+            
+        </table>
+        <script>
+            
+         var echangerGoSport = document.getElementById("echangerGoSport")
+        var echangerDecath = document.getElementById("echangerDecath")
+         var echangerFoot = document.getElementById("echangerFoot")
+         var echangerCourir = document.getElementById("echangerCourir")
+         var echangerWhey = document.getElementById("echangerWhey")
+         echangerWhey.addEventListener("click", function(){supprimerBicepsRecompense2()})
+         
+         echangerDecath.addEventListener("click", function(){supprimerBicepsRecompense1()})
+         echangerFoot.addEventListener("click", function(){supprimerBicepsRecompense1()})
+         echangerCourir.addEventListener("click", function(){supprimerBicepsRecompense1()})
+         echangerGoSport.addEventListener("click", function(){supprimerBicepsRecompense1()})
+        </script>
+                   <script src="/happyfit-2021/api/get.js"></script>
+                   <script src="/happyfit-2021/api/createLocalDatabase.js"></script>
+         <script type="text/javascript" src="objectif.js"></script>
+   
+</body>
+
+
+</html>

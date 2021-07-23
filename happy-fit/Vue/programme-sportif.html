@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="../css/style.css" rel="stylesheet">
+		<meta charset="UTF-8">
+		<script src="app.js"></script>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width">
+		<link rel="manifest" href="manifest.webmanifest">
+		<title>Programme</title>
+		<meta name="viewport" content="width=device-width">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="src/pushbar.css">
+    <link rel="stylesheet" type="text/css" href="src/index-css.css">
+    <script src="http://code.jquery.com/jquery-3.5.1.js"> </script>
+	</head>
+	<body>
+		<script src="/happyfit-2021/api/get.js"></script>
+		<script src="/happyfit-2021/api/createLocalDatabase2.js"></script>
+		<!-- navigation -->
+        <aside data-pushbar-id="left" data-pushbar-direction="left">
+            <div class="titleBar">
+                <span data-pushbar-close class="close push_right">
+                </span>
+                <a href="index2_c.html"> Happy'Fit </a>
+            </div>
+
+			<ul class="menu">
+				<li><a href="/happyfit-2021/FINAL/Vue/catalogue_exercice.html">Catalogue exercices</a></li>
+				<li><a href="/happyfit-2021/FINAL/Vue/catalogue_programme.html">Programmes sportifs</a></li>
+				<li><a href="/happyfit-2021/FINAL/Vue/conseil.html">Nutrition</a></li>
+				<li><a href="/happyfit-2021/FINAL/Vue/suivigraph.html">Suivi activité</a></li>
+				<li><a href="/happyfit-2021/FINAL/Vue/espace_membre.html">Espace membre</a></li>
+				<li><a href="/happyfit-2021/FINAL/Vue/calories.html">Calories dépensées</a></li>
+				<li><a href="/happyfit-2021/FINAL/Vue/imc.html">Calculateur IMC</a></li>
+				<li><a href="/happyfit-2021/FINAL/Vue/map.html">Carte</a></li>
+				<li><a href="/happyfit-2021/FINAL/Vue/index2.html">Se déconnecter</a></li>
+				<!-- ajouter des elements de navigation ici  -->
+			</ul>
+        </aside>
+
+        <!-- NE PAS TOUCHER  -->
+        <div><button data-pushbar-target="left" class="animBarre">
+                <div class="barre"></div>
+                <div class="barre"></div>
+                <div class="barre"></div>
+            </button>
+        </div>
+        <!-- NE PAS TOUCHER  -->
+        <!-- navigation -->
+
+		<div class="container">
+			<div id="image" class="cellule_image">
+				<img src="" id="imgExo">
+			</div>
+			<div id="app" class="timer">
+			</div>
+			<div class="cellule_texte" id="textExo">
+			</div>
+		</div>
+		
+		<div id="divButton" class="bouton">
+			 <button id="Button1" onclick="Increment(), startTimer(),changement_page()" style="visibility: hidden">Exercice suivant</button>
+			 <br>
+			 <button id="Button2" onclick="startTimer()" style="visibility: visible">Commencer</button>
+		</div>
+		<div id="barreProg">
+			<p id="texteBarre"> <p>
+		</div>
+		<script type="text/javascript" src="../Controleur/scriptProgramme.js"></script>
+		<div id="foot">
+			<footer>
+				<div id="foot">
+					<p>Happy Fit - 2021 </p>
+					<p>IUT D'orsay</p>
+				</div>
+			</footer>
+		
+		
+			<script type="text/javascript" src="src/pushbar.js"></script>
+			<script>
+				const pushbar = new Pushbar({
+					blur: true,
+					overlay: true,
+				});
+			</script>
+		</div>
+	</body>
+</html>

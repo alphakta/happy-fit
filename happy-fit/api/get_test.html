@@ -1,0 +1,12 @@
+<html>
+oui
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="get.js"></script>
+<script type="text/javascript">
+  select("SELECT * FROM utilisateur").then((data) => {
+    nom = data[0].nom
+    console.log(nom)
+  })
+</script>
+
+</html>

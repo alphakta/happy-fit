@@ -1,0 +1,44 @@
+/* Boutons de navigation */
+.btn-nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-nav .button{
+  border: 2px solid #216583;
+  background: transparent;
+  border-radius: 50px;
+  padding: 13px 30px;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  margin: 2% 2%;
+  transition: 0.3s;
+  outline: none;
+  font-style: italic;
+}
+
+.btn-nav .button:hover {
+  border: 2px solid #216583;
+  color: white;
+  opacity: 0.7;
+}
+/*
+.btn-nav .button {
+	margin-top:1%;
+	background-color: #216583;
+border: none;
+color: white;
+padding: 8px 25px;
+text-align: center;
+margin-right: 3%;
+font-size: auto;
+border-radius: 20px;
+}
+
+.btn-nav .button:hover {
+  background-color: black;
+  color: white;
+}*/

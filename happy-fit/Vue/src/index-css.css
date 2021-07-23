@@ -1,0 +1,74 @@
+@font-face {
+    font-family: PoiretOne;
+    src: url(../src/PoiretOne.ttf);
+   }
+
+
+.mainTitle{
+
+    font-size: 360%;
+    font-family: 'PoiretOne';
+    text-align: center;
+    text-shadow: 4px 4px 13px rgba(0,0,0,0.6);
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #65c0ba;
+}
+
+.bg_site{
+    background-color: #65c0ba;
+    -webkit-background-size: 100%; 
+    -moz-background-size: 100%; 
+    -o-background-size: 100%; 
+    background-size: 100%; 
+    -webkit-background-size: cover; 
+    -moz-background-size: cover; 
+    -o-background-size: cover; 
+    background-size: cover;
+    font-family: Montserrat;
+}
+
+.box1{
+    background-color: rgba(207,253,248,0.6);
+    padding: 1em;
+    margin-left: 5%;
+    margin-top: 6%;
+    float: left;
+    display: flex;
+    width: 45%;
+    line-height: 1.8;
+    box-shadow: -23px 20px 5px 0px rgba(247,98,98,0.75);
+    -webkit-box-shadow: -23px 20px 5px 0px rgba(247,98,98,0.75);
+    -moz-box-shadow: 23px -20px 5px 0px rgba(247,98,98,0.75);
+
+}
+
+
+.imgBG{
+    float:right;
+    margin-right: 8%;
+    margin-top: 5%;
+    box-shadow: 23px 20px 5px 0px rgba(33,101,131,0.75);
+    -webkit-box-shadow: 23px 20px 5px 0px rgba(33,101,131,0.75);
+    -moz-box-shadow: 23px 20px 5px 0px rgba(33,101,131,0.75);
+}
+@media (max-width: 1100px){
+    html{
+        height: 100%;
+    }
+    .box1{
+        width: unset;
+        margin-left: 0;
+    }
+    .imgBG{
+        float: none;
+        margin-right: 0;
+    }
+    #foot{
+        position: relative;
+    }
+}
+

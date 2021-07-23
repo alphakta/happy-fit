@@ -1,0 +1,370 @@
+ul {
+	margin-right: auto;
+	margin-left: auto;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #216583;
+}
+li {
+	float: left;
+}
+li a {
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font: 1.2em "Roboto", sans-serif;
+	font-style: normal;
+}
+
+li a:hover {
+	background-color: #111;
+}
+body{
+	margin:0 auto;
+	padding:0;
+	background-color: #65c0ba;
+}
+.cellule_image{
+	background-color : rgba(12,100,200,1);
+	width : 40em;
+	height : 35em;
+	margin-right : 12%;
+	margin-left : 5%;	
+	margin-top: 5%;
+}
+.cellule_texte{
+	width : 40em;
+	height : 35em;
+	background-color : rgba(210,7,21,1);
+	margin-right : 5%;
+	margin-left : 12%;
+	margin-top : 5%;	
+}
+#acc
+{
+  line-height: 100px;
+  margin-right: 12%;
+  height: 40%;
+  width: 40%;
+  float:right;
+
+}
+
+.timer{
+	margin-top : 30%;
+}
+
+.container{
+	display: flex;
+}
+
+.base-timer {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+.base-timer__svg {
+  transform: scaleX(-1);
+}
+
+.base-timer__circle {
+  fill: none;
+  stroke: none;
+}
+
+.base-timer__path-elapsed {
+  stroke-width: 7px;
+  stroke: grey;
+}
+
+.base-timer__path-remaining {
+  stroke-width: 7px;
+  stroke-linecap: round;
+  transform: rotate(90deg);
+  transform-origin: center;
+  transition: 1s linear all;
+  fill-rule: nonzero;
+  stroke: currentColor;
+}
+
+.base-timer__path-remaining.green {
+  color: rgb(65, 184, 131);
+}
+
+.base-timer__path-remaining.orange {
+  color: orange;
+}
+
+.base-timer__path-remaining.red {
+  color: red;
+}
+
+.base-timer__label {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+}
+
+.bouton{
+	text-align:center;
+	margin-top : 1.5%;
+	margin-bottom : 2%;
+}
+
+.barreProg{
+	
+	text-align : center;
+	background-image: linear-gradient(to right, #cffdf8, #cffdf8);
+	text-decoration: none;
+    font: 1.2em "Roboto", sans-serif;
+    font-style: normal;
+	border-style : solid;
+	border-color: black;
+    
+}
+#intro 
+{
+  margin-top: 3%;
+  background-color: #65C0BA;
+  margin-left: 5%;
+}
+#rec
+{
+  border-radius: 8px;
+}
+#rec:hover
+{
+
+    background-color: #216583; /* Green */
+    color: white;
+
+}
+#barre a
+{
+	margin:0 60px;
+}
+#barre ul {
+	  margin-right: auto;
+  	margin-left: auto;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+#barre li {
+    float: left;
+}
+
+#barre li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font: 1.2em "Roboto", sans-serif;
+    font-style: normal;
+}
+
+#barre li a:hover {
+    background-color: #eecfcf;
+}
+#barre nav{
+    top:0;
+    right:0;
+    left:0;
+}
+#barre ul li ul
+{
+    display: none;
+    margin: auto;
+    padding: 0;
+	background-color:#000000;
+}
+ 
+#barre ul li ul a
+{
+    font-size: 120%;
+    margin:auto;
+    background: #cccccc;
+}
+#barre ul li:hover ul
+{
+    display:block;
+    margin: 0;
+    text-align:center;
+    margin:auto;
+}
+  
+#barre li:hover ul li
+{
+    float:none;
+    margin: 0;
+    margin:auto;
+}
+table{
+    border-collapse: collapse;
+    width: 1000px;
+    text-align: center;
+    margin: auto;
+  }
+  td{
+    border: 1px solid black;
+    padding: 10px;
+    vertical-align: top;
+    background-color: white;
+  }
+  th{
+      border: 1px solid black;
+    padding: 10px;
+    vertical-align: top;
+    background-color: #216583;
+    color: white;
+  }
+  
+  a{
+      color: black;
+      text-decoration: none;
+	  margin:0 60px;
+}
+#curve_chart{
+    margin: auto;
+    width: 900px; height: 500px;
+    border-color: black;
+    
+}
+h2{
+    font: 1.7em "Roboto", "Condensed", bold;
+    text-decoration: underline black;
+}
+
+.formfield-select--container {
+	position: relative; 
+	text-align: center;
+	background-color: #fff;
+	border: #777 1px solid;
+	margin: 0 0 1.5em 0;
+	
+	overflow: hidden; 
+	/* 
+		Le select natif pourra 
+		dépasser sans être vu 
+	*/
+}
+
+.formfield-select--container select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+    text-align: center;
+	width: 110%; 
+	/* 
+		On est sûr de ne plus voir
+		la flèche native 
+	*/
+	
+	height: auto;
+	border: 0; 
+	padding: .75em;
+	border-radius: 0;
+	
+
+	overflow: hidden;
+	text-overflow: ellipsis;
+	/* 
+		On empêche le texte d'aller
+		jusqu'au bout s'il est trop long
+	*/
+
+}
+
+.formfield-select {
+	position: relative;
+    margin-right: 85%;
+}
+
+.formfield-select--container::after { 
+	/* Le pointeur du select */
+	content: '';
+	position: absolute;
+	top: 50%; 
+	margin-top: -3px;
+	right: .75em;  
+	display: block; 
+	width: 0; height: 0;
+	border-color: transparent;
+	border-top-color: white; 
+	border-width: 6px;
+	border-style: solid;
+	pointer-events: none;
+    /*background-color: white;*/
+}
+
+body{
+    background-color: #65c0ba ;
+}
+
+@media (max-width: 800px) {
+
+    .formfield-select {
+        position: relative;
+        margin-right: 65%;
+        margin-top: 35%;
+    } 
+    table{
+        border-collapse: collapse;
+        width: 200px;
+        /*text-align: center;*/
+        margin-top: 65%;
+        margin-right: 100%;
+      }
+      td{
+        border: 1px solid black;
+        padding: 0px;
+        width: 0px;
+        vertical-align: top;
+        background-color: white;
+        margin-right: 100%;
+      }
+      th{
+          border: 1px solid black;
+        padding: 0px;
+        vertical-align: top;
+        width: 0px;
+        background-color: #216583;
+        color: white;
+        margin-right: 100%;
+      }
+    
+    #curve_chart{
+        margin-left: 0;
+        width: 0px; 
+        height: 0px;
+    }
+
+    
+  }
+  footer
+{
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #216583;
+  text-decoration: none;
+  font: 1.2em "Roboto", sans-serif;
+  font-style: normal;
+  text-align: center;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+}
+

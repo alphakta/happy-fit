@@ -1,0 +1,1149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+	<script src="app.js"></script>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<link rel="manifest" href="manifest.webmanifest">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link type="text/css" rel="stylesheet" href="../css/styleGraphique.css">
+    <title>Graphe de suivi</title>
+	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+	<link rel="stylesheet" type="text/css" href="src/pushbar.css">
+	<link rel="stylesheet" type="text/css" href="src/index-css.css">
+	<script src="http://code.jquery.com/jquery-3.5.1.js"> </script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js%22%3E"></script>
+	<script type="text/javascript" src="https://webdev.iut-orsay.fr/happyfit-2021/api/get.js"></script>
+</head>
+
+<body>
+	<!-- navigation -->
+<aside data-pushbar-id="left" data-pushbar-direction="left">
+    <div class="titleBar">
+        <span data-pushbar-close class="close push_right">
+        </span>
+        <a href="index2_c.html"> Happy'Fit </a>
+    </div>
+
+	<ul class="menu">
+		<li><a href="/happyfit-2021/FINAL/Vue/catalogue_exercice.html">Catalogue exercices</a></li>
+		<li><a href="/happyfit-2021/FINAL/Vue/catalogue_programme.html">Programmes sportifs</a></li>
+		<li><a href="/happyfit-2021/FINAL/Vue/conseil.html">Nutrition</a></li>
+		<li><a href="/happyfit-2021/FINAL/Vue/suivigraph.html">Suivi activité</a></li>
+		<li><a href="/happyfit-2021/FINAL/Vue/espace_membre.html">Espace membre</a></li>
+		<li><a href="/happyfit-2021/FINAL/Vue/calories.html">Calories dépensées</a></li>
+		<li><a href="/happyfit-2021/FINAL/Vue/imc.html">Calculateur IMC</a></li>
+		<li><a href="/happyfit-2021/FINAL/Vue/map.html">Carte</a></li>
+		<li><a href="/happyfit-2021/FINAL/Vue/index2.html">Se déconnecter</a></li>
+		<!-- ajouter des elements de navigation ici  -->
+	</ul>
+</aside>
+
+<!-- NE PAS TOUCHER  -->
+<div><button data-pushbar-target="left" class="animBarre">
+        <div class="barre"></div>
+        <div class="barre"></div>
+        <div class="barre"></div>
+    </button>
+</div>
+<!-- NE PAS TOUCHER  -->
+<!-- navigation -->
+	
+<!------------------------------------------------------------------------------------------------------------------------------------------->
+<h1>Veuillez choisir une valeur</h1>
+<div class="formfield-select">
+	<form action="" class="formfield-select--container">
+		<select style="background-color: #216583; color: white;">
+			<option value="0">Sélectionner</option>
+			<option value="1">Aujourd'hui</option>
+			<option value="2">Hier</option>
+			<option value="3">Une Semaine</option>
+			<option value="4">Deux Semaines</option>
+		</select>
+	</form>
+</div>
+<!----------------------------------------------------------------------------------------------------------------------------------------->
+		<script>
+//==================================================Fonction pour détruire le tableau==========================================================
+			function removeTable(id)
+    {
+        var tbl = document.getElementById(id);
+        if(tbl) tbl.parentNode.removeChild(tbl);
+    }
+//==================================================Fonction pour créer le tableau==========================================================
+function generate_table(test, jour) {
+  
+  var body = document.getElementsByTagName("body")[0];
+  var titre = [jour, 'KCalorie', 'Activité'];
+
+
+  var tbl = document.createElement("table");
+  tbl.setAttribute("id","tableau");
+  var tblBody = document.createElement("tbody");
+  for(var z=0; z<3; z++){
+    var head = document.createElement("th");
+      var headText = document.createTextNode(titre[z]);
+      head.appendChild(headText);
+      tbl.appendChild(head);
+  }
+   var y=0; 
+   var nbpara = test.length;
+   
+
+  for (var i = 0; i < nbpara/3; i++) {
+ 
+    var row = document.createElement("tr");
+    
+    
+    
+   
+
+    for (var j = 0; j < 3; j++) {
+
+      if(test[y]===null){
+      	test[y]=""
+      }
+      var cell = document.createElement("td");
+      var cellA = document.createElement("a");
+      cellA.setAttribute("href", "#")
+      var cellText = document.createTextNode(test[y]);
+      y++;
+      cellA.appendChild(cellText);
+      cell.appendChild(cellA);      
+      row.appendChild(cell); 
+      
+    }
+
+   
+    tblBody.appendChild(row);
+    
+
+  }
+
+  
+  tbl.appendChild(tblBody);
+  
+  body.appendChild(tbl);
+  
+  tbl.setAttribute("border", "2");
+}
+//==================================================Fonction pour choisir un nombre aléatoirement==========================================================
+function getRandomArbitrary(min, max) {
+		  return Math.random() * (max - min) + min;
+		}
+//==================================================Définition de valeur en JSON==========================================================		
+var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB || window.shimIndexedDB;
+        
+        // Open (or create) the database
+        var open = indexedDB.open("Database", 3);
+        
+        // Create the schema
+        open.onupgradeneeded = function () {
+            var db = open.result;
+            var store = db.createObjectStore("Activité", {
+                keyPath: "id"
+            });
+            var index = store.createIndex("NameIndex", ["date"]);
+        };
+        
+        open.onsuccess = function () {
+            // Start a new transaction
+            var db = open.result;
+            var tx = db.transaction("Activité", "readwrite");
+            var store = tx.objectStore("Activité");
+            var index = store.index("NameIndex");
+			store.put({
+                id: 1,
+                calorie:800,
+                activite:"course",
+                date:"05/04/2021",
+                heure:0
+            });
+            store.put({
+                id: 2,
+                calorie:1200,
+                activite:"pompes",
+                date:"05/04/2021",
+				heure:4
+            });
+            store.put({
+                id: 3,
+                calorie:900,
+                activite:"pompes",
+                date:"05/04/2021",
+                heure:8
+            });
+            store.put({
+                id: 4,
+                calorie:200,
+                activite:"abdo",
+                date:"05/04/2021",
+                heure:12
+            });
+            store.put({
+                id: 5,
+                calorie:500,
+                activite:"pompes",
+                date:"05/04/2021",
+				heure:16
+            });
+            store.put({
+                id: 6,
+                calorie:60,
+                activite:"pompes",
+                date:"05/04/2021",
+                heure:20
+            });
+            store.put({
+                id: 7,
+                calorie:1500,
+                activite:"abdo",
+                date:"05/04/2021",
+                heure:24
+            });
+
+			store.put({
+                id: 8,
+                calorie:100,
+                activite:"course",
+                date:"04/04/2021",
+                heure:0
+            });
+            store.put({
+                id: 9,
+                calorie:200,
+                activite:"pompes",
+                date:"04/04/2021",
+				heure:4
+            });
+            store.put({
+                id: 10,
+                calorie:300,
+                activite:"pompes",
+                date:"04/04/2021",
+                heure:8
+            });
+            store.put({
+                id: 11,
+                calorie:400,
+                activite:"abdo",
+                date:"04/04/2021",
+                heure:12
+            });
+            store.put({
+                id: 12,
+                calorie:500,
+                activite:"pompes",
+                date:"04/04/2021",
+				heure:16
+            });
+            store.put({
+                id: 13,
+                calorie:600,
+                activite:"pompes",
+                date:"04/04/2021",
+                heure:20
+            });
+            store.put({
+                id: 14,
+                calorie:700,
+                activite:"abdo",
+                date:"04/04/2021",
+                heure:24
+            });
+
+            store.put({
+                id: 16,
+                calorie:4545,
+                activite:"pompes",
+                date:"05/04/2021",
+				heure:-1
+            });
+            store.put({
+                id: 17,
+                calorie:356,
+                activite:"pompes",
+                date:"04/04/2021",
+				heure:-1
+            });
+            store.put({
+                id: 18,
+                calorie:857,
+                activite:"abdo",
+                date:"03/04/2021",
+				heure:-1
+            });
+            store.put({
+                id: 19,
+                calorie:486,
+                activite:"pompes",
+                date:"02/04/2021",
+				heure:-1
+            });
+            store.put({
+                id: 20,
+                calorie:454,
+                activite:"pompes",
+                date:"01/04/2021",
+				heure:-1
+            });
+            store.put({
+                id: 21,
+                calorie:147,
+                activite:"abdo",
+                date:"31/03/2021",
+				heure:-1
+            });
+            store.put({
+                id: 22,
+                calorie:546,
+                activite:"abdo",
+                date:"30/03/2021",
+				heure:-1
+            });
+			store.put({
+                id: 23,
+                calorie:145,
+                activite:"pompes",
+                date:"29/03/2021",
+				heure:-1
+            });
+            store.put({
+                id: 24,
+                calorie:645,
+                activite:"pompes",
+                date:"28/03/2021",
+				heure:-1
+            });
+            store.put({
+                id: 24,
+                calorie:56,
+                activite:"abdo",
+                date:"27/03/2021",
+				heure:-1
+            });
+            store.put({
+                id: 25,
+                calorie:123,
+                activite:"pompes",
+                date:"26/03/2021",
+				heure:-1
+            });
+            store.put({
+                id: 26,
+                calorie:876,
+                activite:"pompes",
+                date:"25/03/2021",
+				heure:-1
+            });
+            store.put({
+                id: 27,
+                calorie:456,
+                activite:"abdo",
+                date:"24/03/2021",
+				heure:-1
+            });
+            store.put({
+                id: 28,
+                calorie:546,
+                activite:"abdo",
+                date:"23/03/2021",
+				heure:-1
+            });
+
+			
+		}
+		       
+		        var semaine2 ={
+		    		temps : "Deux semaines",
+		            val1: Math.round(getRandomArbitrary(0,50)+getRandomArbitrary(0,50)),
+		            val2: Math.round(getRandomArbitrary(0,50)+getRandomArbitrary(0,50)),
+		            val3: Math.round(getRandomArbitrary(0,50)+getRandomArbitrary(0,50)),
+		            val4: Math.round(getRandomArbitrary(0,50)+getRandomArbitrary(0,50)),
+		            val5: Math.round(getRandomArbitrary(0,50)+getRandomArbitrary(0,50)),
+		            val6: Math.round(getRandomArbitrary(0,50)+getRandomArbitrary(0,50)),
+		            val7: Math.round(getRandomArbitrary(0,50)+getRandomArbitrary(0,50))
+		            
+		        }
+		        var semaine4=  {
+		    		temps : "Quatre semaines",
+		            val1: 0,
+		            val2: Math.round(getRandomArbitrary(0,50)*7),
+		            val3: Math.round(getRandomArbitrary(0,50)*7),
+		            val4: Math.round(getRandomArbitrary(0,50)*7),
+		            val5: Math.round(getRandomArbitrary(0,50)*7),
+		            val6: 0,
+		            val7: 0
+		            
+		        }
+
+		
+//==================================================Première définition de toutes les variables nécessaires==========================================================		
+		
+/*
+		var v1=Aujourd.val1;
+		var v2=Aujourd.val2;
+		var v3=Aujourd.val3;
+		var v4=Aujourd.val4;
+		var v5=Aujourd.val5;
+		var v6=Aujourd.val6;
+		var v7=Aujourd.val7;
+		var temps= "heure";
+		var t1="";
+		var t2="";
+		var t3="";
+		var t4="";
+		var t5="";
+		var t6="";
+		var t7="";
+		var a1="";
+		var a2="";
+		var a3="";
+		var a4="";
+		var a5="";
+		var a6="";
+		var a7="";
+		var titre ="";
+		*/
+
+//==================================================Switch en fonction de la valeur sélectionnée==========================================================
+		let val = "1"
+		let b= document.body
+		let newP = document.createElement('p');
+		var elt = document.querySelector('select');
+		function SousDate(d, nb) {
+			// additionne nb jours à une date
+			var d1 = d.getTime(), d2 = new Date();
+			d1 -= 24*3600*1000*nb
+			d2.setTime(d1)
+			mois = d2.getMonth()+1
+
+			if(d2.getDate()<10){zeroj = "0"}
+			else{zeroj=""}
+
+			if(mois<10){zero = "0"}
+			else{zero=""}
+
+			datefinal = zeroj+d2.getDate()+"/"+zero+mois+"/"+d2.getFullYear()
+
+			return datefinal
+			}
+
+		elt.addEventListener('change', function () {
+			val = this.value
+			
+			
+			switch (val) {
+				case '1':
+
+				var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB || window.shimIndexedDB;
+        
+				// Open (or create) the database
+				var open = indexedDB.open("Database", 3);
+				
+				// Create the schema
+				open.onupgradeneeded = function () {
+					var db = open.result;
+					var store = db.createObjectStore("Activité", {
+						keyPath: "id"
+					});
+					var index = store.createIndex("NameIndex", ["date"]);
+				};
+				
+				open.onsuccess = function () {
+					// Start a new transaction
+					var db = open.result;
+					var tx = db.transaction("Activité", "readwrite");
+					var store = tx.objectStore("Activité");
+					var index = store.index("NameIndex");
+					removeTable("tableau");
+					console.log("Aujourd'hui");
+					titre = "Aujourd'hui";
+					var getAllData = index.getAll();
+					var ladate = new Date()
+					let jour =ladate.getDate()
+					let mois = ladate.getMonth()+1
+					let annee = ladate.getFullYear()
+					if(jour<10){
+						jour="0"+jour
+					}
+					if(mois<10){
+						var dateActuelle=(jour+"/"+"0"+mois+"/"+annee)
+					}else{
+						var dateActuelle=(annee+"/"+mois+"/"+jour)
+					}
+					getAllData .onsuccess = function () {
+							
+						for(var i = 0; i<getAllData.result.length;i++){
+							
+							
+							
+							if(dateActuelle == getAllData.result[i].date){
+								
+								if(getAllData.result[i].heure==0){
+								v1=getAllData.result[i].calorie;
+								a1=getAllData.result[i].activite;
+								}
+								if(getAllData.result[i].heure==4){
+								v2=getAllData.result[i].calorie;
+								a2=getAllData.result[i].activite; 
+								}
+								if(getAllData.result[i].heure==8){
+								v3=getAllData.result[i].calorie;
+								a3=getAllData.result[i].activite; 
+								}
+								if(getAllData.result[i].heure==12){
+								v4=getAllData.result[i].calorie;
+								a4=getAllData.result[i].activite; 
+								}
+								if(getAllData.result[i].heure==16){
+								v5=getAllData.result[i].calorie;
+								a5=getAllData.result[i].activite; 
+								}
+								if(getAllData.result[i].heure==20){
+								v6=getAllData.result[i].calorie;
+								a6=getAllData.result[i].activite; 
+								}
+								if(getAllData.result[i].heure==24){
+								v7=getAllData.result[i].calorie;
+								a7=getAllData.result[i].activite; 
+								}
+								
+								temps = "Heure"
+								t1 = "0h";
+								t2 = "4h";
+								t3 = "8h";
+								t4 = "12h";
+								t5 = "16h";
+								t6 = "20h";
+								t7 = "24h";
+								
+								
+							}
+							else{
+								v1=0
+								v2=0
+								v3=0
+								v4=0
+								v5=0
+								v6=0
+								v7=0
+								temps = "Heure"
+								t1 = "0h";
+								t2 = "4h";
+								t3 = "8h";
+								t4 = "12h";
+								t5 = "16h";
+								t6 = "20h";
+								t7 = "24h";
+								a1="N'a rien fait"
+								a2="N'a rien fait"
+								a3="N'a rien fait"
+								a4="N'a rien fait"
+								a5="N'a rien fait"
+								a6="N'a rien fait"
+								a7="N'a rien fait"
+
+							}
+							
+						}
+						
+						generate_table([t1,v1,a1,t2,v2,a2,t3,v3,a3,t4,v4,a4,t5,v5,a5,t6,v6,a6,t7,v7,a7], titre);
+						drawChart()
+						
+					}
+					
+				}
+			    	 
+					break;
+				case '2':
+				var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB || window.shimIndexedDB;
+        
+				// Open (or create) the database
+				var open = indexedDB.open("Database", 3);
+				
+				// Create the schema
+				open.onupgradeneeded = function () {
+					var db = open.result;
+					var store = db.createObjectStore("Activité", {
+						keyPath: "id"
+					});
+					var index = store.createIndex("NameIndex", ["date"]);
+				};
+				
+				open.onsuccess = function () {
+					// Start a new transaction
+					var db = open.result;
+					var tx = db.transaction("Activité", "readwrite");
+					var store = tx.objectStore("Activité");
+					var index = store.index("NameIndex");
+					removeTable("tableau");
+					console.log("Hier");
+					titre = "Hier";
+					var getAllData = index.getAll();
+					var ladate = new Date()
+					let jour =ladate.getDate()-1
+					let mois = ladate.getMonth()+1
+					let annee = ladate.getFullYear()
+					if(jour<10){
+						jour="0"+jour
+					}
+					if(mois<10){
+						var dateHier=(jour+"/"+"0"+mois+"/"+annee)
+					}else{
+						var dateHier=(annee+"/"+mois+"/"+jour)
+					}
+					getAllData .onsuccess = function () {
+							
+						for(var i = 0; i<getAllData.result.length;i++){
+							
+							
+							if(dateHier == getAllData.result[i].date){
+								
+								if(getAllData.result[i].heure==0){
+								v1=getAllData.result[i].calorie;
+								a1=getAllData.result[i].activite;
+								}
+								if(getAllData.result[i].heure==4){
+								v2=getAllData.result[i].calorie;
+								a2=getAllData.result[i].activite; 
+								}
+								if(getAllData.result[i].heure==8){
+								v3=getAllData.result[i].calorie;
+								a3=getAllData.result[i].activite; 
+								}
+								if(getAllData.result[i].heure==12){
+								v4=getAllData.result[i].calorie;
+								a4=getAllData.result[i].activite; 
+								}
+								if(getAllData.result[i].heure==16){
+								v5=getAllData.result[i].calorie;
+								a5=getAllData.result[i].activite; 
+								}
+								if(getAllData.result[i].heure==20){
+								v6=getAllData.result[i].calorie;
+								a6=getAllData.result[i].activite; 
+								}
+								if(getAllData.result[i].heure==24){
+								v7=getAllData.result[i].calorie;
+								a7=getAllData.result[i].activite; 
+								}
+								
+								temps = "Heure"
+								t1 = "0h";
+								t2 = "4h";
+								t3 = "8h";
+								t4 = "12h";
+								t5 = "16h";
+								t6 = "20h";
+								t7 = "24h";
+								
+								
+							}
+							else{
+								v1=0
+								v2=0
+								v3=0
+								v4=0
+								v5=0
+								v6=0
+								v7=0
+								temps = "Heure"
+								t1 = "0h";
+								t2 = "4h";
+								t3 = "8h";
+								t4 = "12h";
+								t5 = "16h";
+								t6 = "20h";
+								t7 = "24h";
+								a1="N'a rien fait"
+								a2="N'a rien fait"
+								a3="N'a rien fait"
+								a4="N'a rien fait"
+								a5="N'a rien fait"
+								a6="N'a rien fait"
+								a7="N'a rien fait"
+
+							}
+							
+						}
+						generate_table([t1,v1,a1,t2,v2,a2,t3,v3,a3,t4,v4,a4,t5,v5,a5,t6,v6,a6,t7,v7,a7], titre);
+						drawChart()
+						
+					}
+					
+				}
+			 
+			break;
+				case '3':
+				var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB || window.shimIndexedDB;
+        
+					// Open (or create) the database
+					var open = indexedDB.open("Database", 3);
+					
+					// Create the schema
+					open.onupgradeneeded = function () {
+						var db = open.result;
+						var store = db.createObjectStore("Activité", {
+							keyPath: "id"
+						});
+						var index = store.createIndex("NameIndex", ["date"]);
+					};
+					
+					open.onsuccess = function () {
+						// Start a new transaction
+						var db = open.result;
+						var tx = db.transaction("Activité", "readwrite");
+						var store = tx.objectStore("Activité");
+						var index = store.index("NameIndex");
+						removeTable("tableau");
+						console.log("1 Semaine");
+						titre = "1 Semaine";
+						
+						var getAllData = index.getAll();
+						var ladate = new Date()
+						let jour =ladate.getDate()
+						let mois = ladate.getMonth()+1
+						let annee = ladate.getFullYear()
+						
+						if(jour<10){
+							jour="0"+jour
+						}
+						if(mois<10){
+							var DateAcuelle=(jour+"/"+"0"+mois+"/"+annee)
+						}else{
+							var DateAcuelle=(annee+"/"+mois+"/"+jour)
+						}
+						
+						
+						getAllData .onsuccess = function () {
+								
+								Datej1 = SousDate(ladate,1)
+								Datej2 = SousDate(ladate,2)
+								Datej3 = SousDate(ladate,3)
+								Datej4 = SousDate(ladate,4)
+								Datej5 = SousDate(ladate,5)
+								Datej6 = SousDate(ladate,6)
+								
+							for(var i = 0; i<getAllData.result.length;i++){
+								
+								
+								if(DateAcuelle == getAllData.result[i].date){
+									if(getAllData.result[i].heure==-1){
+										v1=getAllData.result[i].calorie;
+										a1=getAllData.result[i].activite;
+									}
+								}
+								else{
+									v1=0
+									a1="N'a rien fait"
+								}
+								if(Datej1 == getAllData.result[i].date){
+									if(getAllData.result[i].heure==-1){
+									v2=getAllData.result[i].calorie;
+									a2=getAllData.result[i].activite;
+									}
+								}
+								else{
+									v2=0
+									a2="N'a rien fait"
+								}
+								if(Datej2 == getAllData.result[i].date){
+									if(getAllData.result[i].heure==-1){
+									v3=getAllData.result[i].calorie;
+									a3=getAllData.result[i].activite;
+									}
+								}
+								else{
+									v3=0
+									a3="N'a rien fait"
+								}
+								if(Datej3 == getAllData.result[i].date){
+									if(getAllData.result[i].heure==-1){
+									v4=getAllData.result[i].calorie;
+									a4=getAllData.result[i].activite;
+									}
+								}
+								else{
+									v4=0
+									a4="N'a rien fait"
+								}
+								if(Datej4 == getAllData.result[i].date){
+									if(getAllData.result[i].heure==-1){
+									v5=getAllData.result[i].calorie;
+									a5=getAllData.result[i].activite;
+									}
+								}
+								else{
+									v5=0
+									a5="N'a rien fait"
+								}
+								if(Datej5 == getAllData.result[i].date){
+									if(getAllData.result[i].heure==-1){
+									v6=getAllData.result[i].calorie;
+									a6=getAllData.result[i].activite;
+									}
+								}
+								else{
+									v6=0
+									a6="N'a rien fait"
+								}
+								if(Datej6 == getAllData.result[i].date){
+									if(getAllData.result[i].heure==-1){
+									v7=getAllData.result[i].calorie;
+									a7=getAllData.result[i].activite;
+									}
+								}
+								else{
+									v7=0
+									a7="N'a rien fait"
+									temps = "Jours"
+								}
+									
+									
+									
+									t7 = "J-7";
+									t6 = "J-6";
+									t5 = "J-5";
+									t4 = "J-4";
+									t3 = "J-3";
+									t2 = "Hier";
+									t1 = "Aujourd'hui";
+									
+									
+								 
+								
+								
+							}
+
+							
+							temps = "Jours"
+							generate_table([t1,v1,a1,t2,v2,a2,t3,v3,a3,t4,v4,a4,t5,v5,a5,t6,v6,a6,t7,v7,a7], titre);
+							drawChart()
+							
+							
+						}
+						
+					}
+				
+				break;
+				case '4':
+				var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB || window.shimIndexedDB;
+        
+					// Open (or create) the database
+					var open = indexedDB.open("Database", 3);
+					
+					// Create the schema
+					open.onupgradeneeded = function () {
+						var db = open.result;
+						var store = db.createObjectStore("Activité", {
+							keyPath: "id"
+						});
+						var index = store.createIndex("NameIndex", ["date"]);
+					};
+					
+					open.onsuccess = function () {
+						// Start a new transaction
+						var db = open.result;
+						var tx = db.transaction("Activité", "readwrite");
+						var store = tx.objectStore("Activité");
+						var index = store.index("NameIndex");
+						removeTable("tableau");
+						console.log("2 Semaines");
+						titre = "2 Semaines";
+						
+						var getAllData = index.getAll();
+						var ladate = new Date()
+						let jour =ladate.getDate()
+						let mois = ladate.getMonth()+1
+						let annee = ladate.getFullYear()
+						
+						if(jour<10){
+							jour="0"+jour
+						}
+						if(mois<10){
+							var DateAcuelle=(jour+"/"+"0"+mois+"/"+annee)
+						}else{
+							var DateAcuelle=(annee+"/"+mois+"/"+jour)
+						}
+						
+						
+						getAllData .onsuccess = function () {
+								
+								Datej1 = SousDate(ladate,1)
+								Datej2 = SousDate(ladate,2)
+								Datej3 = SousDate(ladate,3)
+								Datej4 = SousDate(ladate,4)
+								Datej5 = SousDate(ladate,5)
+								Datej6 = SousDate(ladate,6)
+								Datej7 = SousDate(ladate,7)
+								Datej8 = SousDate(ladate,8)
+								Datej9 = SousDate(ladate,9)
+								Datej10 = SousDate(ladate,10)
+								Datej11= SousDate(ladate,11)
+								Datej12= SousDate(ladate,12)
+								Datej13= SousDate(ladate,13)
+								va1 = 0
+								va2= 0
+								va3= 0
+								va4= 0
+								va5= 0
+								va6= 0
+								va7= 0
+								
+								
+							for(var i = 0; i<getAllData.result.length;i++){
+								
+								
+								if(DateAcuelle == getAllData.result[i].date){
+									if(getAllData.result[i].heure==-1){
+										val1=getAllData.result[i].calorie;
+										a1=getAllData.result[i].activite;
+										va1 += val1
+									}
+									
+								}
+								else{
+									va1=0
+									
+								}
+								if(Datej1 == getAllData.result[i].date){
+									if(getAllData.result[i].heure==-1){
+										aa1=getAllData.result[i].activite;
+										a1=a1+"/"+aa1
+										val2=getAllData.result[i].calorie;
+										va1 += val2
+									}
+								}
+								if(Datej2 == getAllData.result[i].date){
+									if(getAllData.result[i].heure==-1){
+										val3=getAllData.result[i].calorie;
+									a2=getAllData.result[i].activite;
+									console.log("a2="+a2)
+									va2 += val3
+									}
+								}
+								else{
+									va2=0
+									
+								}
+								if(Datej3 == getAllData.result[i].date){
+									if(getAllData.result[i].heure==-1){
+										val4=getAllData.result[i].calorie;
+										aa2=getAllData.result[i].activite;
+										a2=a2+"/"+aa2
+										va2 += val4
+									}
+								}
+								
+								if(Datej4 == getAllData.result[i].date){
+									if(getAllData.result[i].heure==-1){
+										val5=getAllData.result[i].calorie;
+									a3=getAllData.result[i].activite;
+									va3 += val5
+									}
+								}
+								else{
+									va3=0
+									
+								}
+								if(Datej5 == getAllData.result[i].date){
+									if(getAllData.result[i].heure==-1){
+										aa3=getAllData.result[i].activite;
+										a3=a3+"/"+aa3
+									val6=getAllData.result[i].calorie;
+									va3 += val6
+									
+									}
+								}
+								if(Datej6 == getAllData.result[i].date){
+									if(getAllData.result[i].heure==-1){
+										val7=getAllData.result[i].calorie;
+										a4=getAllData.result[i].activite;
+										va4 += val7
+									}
+								}
+								else{
+									va4=0
+									
+								}
+								if(Datej7 == getAllData.result[i].date){
+									if(getAllData.result[i].heure==-1){
+										aa4=getAllData.result[i].activite;
+										a4=a4+"/"+aa4
+										val8=getAllData.result[i].calorie;
+										va4 += val8
+									}
+								}
+								if(Datej8 == getAllData.result[i].date){
+									if(getAllData.result[i].heure==-1){
+										val9=getAllData.result[i].calorie;
+									a5=getAllData.result[i].activite;
+									va5 += val9
+									}
+								}
+								else{
+									va5=0
+									
+								}
+								if(Datej9 == getAllData.result[i].date){
+									if(getAllData.result[i].heure==-1){
+										aa5=getAllData.result[i].activite;
+										a5=a5+"/"+aa5
+										val10=getAllData.result[i].calorie;
+										va5 += val10
+									}
+								}
+								if(Datej10 == getAllData.result[i].date){
+									if(getAllData.result[i].heure==-1){
+										val11=getAllData.result[i].calorie;
+									a6=getAllData.result[i].activite;
+									va6 += val11
+									}
+								}
+								else{
+									va6=0
+									
+								}
+								if(Datej11 == getAllData.result[i].date){
+									if(getAllData.result[i].heure==-1){
+										aa6=getAllData.result[i].activite;
+										a6=a6+"/"+aa6
+										val12=getAllData.result[i].calorie;
+										va6 += val12
+									}
+								}
+								if(Datej12 == getAllData.result[i].date){
+									if(getAllData.result[i].heure==-1){
+										val13=getAllData.result[i].calorie;
+									a7=getAllData.result[i].activite;
+									va7 += val13
+									}
+								}
+								else{
+									va7=0
+									
+								}
+								if(Datej13 == getAllData.result[i].date){
+									if(getAllData.result[i].heure==-1){
+										aa7=getAllData.result[i].activite;
+										a7=a7+"/"+aa7
+										val14=getAllData.result[i].calorie;
+										va7 += val14
+									
+									}
+								}
+								
+								
+									
+									
+									temps = "Jours"
+									t1 = "Aujourd'hui / Hier";
+									t2 = "J-3 / J-4";
+									t3 = "J-5 / J-6";
+									t4 = "J-7 / J-8";
+									t5 = "J-9 / J-10";
+									t6 = "J-11 / J-12";
+									t7 = "J-13 / J-14";
+									
+									
+								
+								
+								
+							}
+							temps = "Jours"
+							v1= va1
+							v2= va2
+							console.log("v2="+v2)
+							v3= va3
+							v4= va4
+							v5= va5
+							v6= va6
+							v7= va7
+							if(v1==0){
+								a1="N'a rien fait"
+							}
+							if(v2==0){
+								a2="N'a rien fait"
+							}
+							if(v3==0){
+								a3="N'a rien fait"
+							}
+							if(v4==0){
+								a4="N'a rien fait"
+							}
+							if(v5==0){
+								a5="N'a rien fait"
+							}
+							if(v6==0){
+								a6="N'a rien fait"
+							}
+							if(v7==0){
+								a7="N'a rien fait"
+							}
+							drawChart()
+							
+							generate_table([t1,v1,a1,t2,v2,a2,t3,v3,a3,t4,v4,a4,t5,v5,a5,t6,v6,a6,t7,v7,a7], titre);
+							
+							
+							
+							
+						}
+						
+					}
+				
+				break;
+			
+			  default:
+				console.log(`erreur`);
+			
+			}
+		
+	
+		
+		
+		
+		
+    
+//==================================================Importation des différents outils nécessaire pour faire le grpahique==========================================================		
+
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      google.charts.load('current', {'packages':['line']});
+      function drawChart(){
+
+//==================================================Fonction qui forme le graphique===============================================================    
+  	
+        var data = google.visualization.arrayToDataTable([
+			
+
+          [temps, 'Calorie'],
+          [t1,  v1],
+          [t2,  v2],
+          [t3,  v3],
+          [t4,  v4],
+          [t5,  v5],
+          [t6,  v6],
+          [t7,  v7]
+        ]);
+
+        var options = {
+          title: titre,
+          curveType: 'function',
+          legend: { position: 'bottom' },  
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+    }
+    })
+
+    </script>
+    <div id="curve_chart" ></div>
+<!-----------------------------------------------------------------Style de la page---------------------------------------------------------------->
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+		<script src="app.js"></script>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width">
+		<link rel="manifest" href="manifest.webmanifest">
+        <title>Badges</title>
+    </head>
+<body>
+    <script type="text/javascript" src="badges.js"></script>
+    <table>
+        <tr>
+            <td><img src="rond.png" alt="" height="150px" width="250px"/></td>
+            <td>Faire au moins un exercice ou une course tous les jours pendant 7 jours de suite </td>
+            <td>gain: 10 <img src=biceps.png alt="" height="45px" width="45px"/> </td>
+            <td><button id="echanger1" disabled="disabled">echanger</button></td>
+        </tr>
+        <tr>
+            <td><img src="rond.png" alt="" height="150px" width="250px"/></td>
+            <td>Faire au moins un exercice ou une course tous les jours pendant 14 jours de suite </td>
+            <td>gain: 20 <img src=biceps.png alt="" height="45px" width="45px"/> </td>
+            <td><button id="echanger2" disabled="disabled">echanger</button></td>
+        </tr>
+        <tr>
+            <td><img src="rond.png" alt="" height="150px" width="250px"/></td>
+            <td> Faire une course de plus de 20 min  </td>
+            <td>gain: 10 <img src=biceps.png alt="" height="45px" width="45px"/> </td>
+            <td><button id="echanger3" disabled="disabled">echanger</button></td>
+            
+        </tr>
+         <tr>
+            <td><img src="rond.png" alt="" height="150px" width="250px"/></td>
+            <td> Faire une course de plus de 40 min  </td>
+            <td>gain: 20 <img src=biceps.png alt="" height="45px" width="45px"/> </td>
+            <td><button id="echanger4" disabled="disabled">echanger</button></td>
+        </tr>
+        <tr>
+            <td><img src="rond.png" alt="" height="150px" width="250px"/></td>
+            <td>Finir un programme déjà fait  </td>
+            <td>gain: 5 <img src=biceps.png alt="" height="45px" width="45px"/> </td>
+            <td><button id="echanger5" disabled="disabled">echanger</button></td>
+        </tr>
+        <tr>
+            <td><img src="rond.png" alt="" height="150px" width="250px"/></td>
+            <td>Finir un programme personnalisé  </td>
+            <td>gain: 5 <img src=biceps.png alt="" height="45px" width="45px"/> </td>
+            <td><button id="echanger6"disabled="disabled">echanger</button></td>
+        </tr>
+        <tr>
+            <td><img src="rond.png" alt="" height="150px" width="250px"/></td>
+            <td> Créer un compte   </td>
+            <td>gain: 10 <img src=biceps.png alt="" height="45px" width="45px"/> </td>
+            <td><button id="echanger7" >echanger</button></td>
+        </tr>
+
+    </table>
+    <script>
+    var echanger1 = document.getElementById("echanger1")
+    var echanger2 = document.getElementById("echanger2")
+     var echanger3 = document.getElementById("echanger3")
+     var echanger4 = document.getElementById("echanger4")
+     var echanger5 = document.getElementById("echanger5")
+     var echanger6 = document.getElementById("echanger6")
+     var echanger7 = document.getElementById("echanger7")
+     echanger1.addEventListener("click", function(){ajouterBiceps(10)})
+         
+         echanger2.addEventListener("click", function(){ajouterBiceps(20)})
+         echanger3.addEventListener("click", function(){ajouterBiceps(10)})
+         echanger4.addEventListener("click", function(){ajouterBiceps(20)})
+         echanger5.addEventListener("click", function(){ajouterBiceps(5)})
+         echanger6.addEventListener("click", function(){ajouterBiceps(5)})
+         echanger7.addEventListener("click", function(){ajouterBiceps(10); echanger7.disabled=true})
+     </script>
+</body>
+<script src="/happyfit-2021/api/get.js"></script>
+<script src="/happyfit-2021/api/createLocalDatabase.js"></script>
+<script type="text/javascript" src="objectif.js"></script>
+
+</html>

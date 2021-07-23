@@ -1,0 +1,111 @@
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8">
+	<title>HAPPY FIT</title>
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="../css/styleConnexion.css">
+	    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="src/pushbar.css">
+	<link rel="stylesheet" type="text/css" href="src/index-css.css">
+    <script src="http://code.jquery.com/jquery-3.5.1.js"> </script>
+</head>
+
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+	<!-- navigation -->
+	<aside data-pushbar-id="left" data-pushbar-direction="left">
+		<div class="titleBar">
+			<span data-pushbar-close class="close push_right">
+			</span>
+			<a href="index2.html"> Happy'Fit </a>
+		</div>
+
+		<ul class="menu">
+		<li><a href="inscription.html">Inscription</a></li>
+		<li><a href="connexion.html">Connexion</a></li>
+		<li><a href="#contact">Contact</a></li>
+		<!-- ajouter des elements de navigation ici  -->
+		</ul>
+	</aside>
+
+	<!-- NE PAS TOUCHER  -->
+	<div><button data-pushbar-target="left" class="animBarre">
+			<div class="barre"></div>
+			<div class="barre"></div>
+			<div class="barre"></div>
+		</button>
+	</div>
+	<!-- NE PAS TOUCHER  -->
+<!-- navigation -->
+
+
+	<div class="image">
+		<img src="../images/Gestion_comptes/hommeQuiCours.jpg">
+	</div>
+
+
+	<div class="droite">
+
+		
+		
+			<form method="POST" action="../Modele/traitement.php" class="form_registration">
+
+				<h1 class="txt-form">Connexion</h1>
+
+				<div class="encadré">
+					<label for="email"><b>Mail: </b></label>
+					<div class="mail">
+						<input id="email" type="text" name="mail">
+					</div>
+				</div>
+
+				<div class="encadré">
+					<label for="mdp"><b>Mot de passe: </b></label>
+					<div class="motdepasse">
+						<input id="mdp" type="password" name="motdepasse">
+					</div>
+				</div>
+				<div class="encadré">
+					<button class="btn">Se connecter</button>
+				</div>
+
+				<p class="txt-co-ins">Vous n'avez pas de compte ? <a href="inscription.html" name="test">Inscription</a></p>
+			</form>
+		</div>
+
+<script>
+</script>
+
+
+	<footer>
+		<div id="foot">
+			<p>Happy Fit - 2021 </p>
+			<p>IUT D'orsay</p>
+		</div>
+	</footer>	
+
+
+	<script type="text/javascript" src="src/pushbar.js"></script>
+	<script>
+		const pushbar = new Pushbar({
+		blur: true,
+		overlay: true,
+		});
+	</script>
+	<script>
+		var typed = new Typed(".typed", {
+		strings: [
+			"A vos marques?",
+			"Prêt?",
+			"Partez !",
+			"Rejoignez l'aventure !",
+			"Rejoignez Happy Fit !"
+		],
+		backSpeed: 10,
+		typeSpeed: 65,
+		startDelay: 0,
+		});
+	</script>		
+</body>
+</html>

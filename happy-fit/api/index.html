@@ -1,0 +1,20 @@
+<html>
+<script type="text/javascript" src="/happyfit-2021/api/get.js"></script>
+<script type="text/javascript">
+	select("SELECT * FROM utilisateur").then((data) => {
+    console.log(typeof data)
+    console.log(data)
+    data.forEach(element => {
+      console.log(element)
+      Object.entries(element).forEach(([key, value]) => {
+            console.log(`${key} ${value}`);
+        });
+        console.log('-------------------');
+    });
+    //nom = data[0].nom
+    //console.log(nom)
+  })
+</script>
+<script src="indexeddb.js"></script>
+
+</html>

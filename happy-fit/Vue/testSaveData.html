@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="fr-FR" class="bg_site">
+<head>
+	<!-- initialisation -->
+	<meta charset= "utf-15">
+	<meta name="viewport" content="width=device-width">
+	<script src="app.js"></script>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<link rel="manifest" href="manifest.webmanifest">
+
+</head>
+<body>
+
+	<div id="div1"></div>
+	<script src="/happyfit-2021/api/get.js"></script>
+	<script src="/happyfit-2021/api/createLocalDatabase.js"></script>
+	<script>
+	var getAllData = index.getAll();
+    getAllData.onsuccess = function () {
+				console.log(getAllData.result[0].id);
+        console.log(getAllData.result);
+    };
+
+
+	</script>
+</body>	
+</html>

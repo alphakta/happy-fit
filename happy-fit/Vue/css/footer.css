@@ -1,0 +1,13 @@
+/* Footer */
+
+#foot
+{
+    left:0;
+    right:0;
+    bottom:0;
+    background-color: #216583;
+    text-decoration: none;
+    font: 1.2em "Roboto", sans-serif;
+    font-style: normal;
+    text-align: center;
+}

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="fr-FR" class="bg_site">
+<head>    
+    <script src="/happyfit-2021/api/get.js"></script>
+    <script src="/happyfit-2021/api/createLocalDatabase2.js"></script>
+	<!-- initialisation -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+	<script src="app.js"></script>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link rel="manifest" href="manifest.webmanifest">
+    <link rel="stylesheet" type="text/css" href="css/style-form.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css94?family=Roboto&family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/header.css">
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <link href="css/style-boutons_nav.css" rel="stylesheet">
+    <script src="src/initBtnNavigation.js"></script>
+    <title> Crée son repas.</title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="src/pushbar.css">
+    <script src="http://code.jquery.com/jquery-3.5.1.js"> </script>
+	<!-- fin initilisation -->
+</head>
+<body>
+<!-- navigation -->
+<aside data-pushbar-id="left" data-pushbar-direction="left">
+    <div class="titleBar">
+        <span data-pushbar-close class="close push_right">
+        </span>
+        <a href="index.html"> Happy'Fit </a>
+    </div>
+
+    <ul class="menu">
+        <li><a href="/happyfit-2021/FINAL/Vue/catalogue_exercice.html">Catalogue exercices</a></li>
+        <li><a href="/happyfit-2021/FINAL/Vue/catalogue_programme.html">Programmes sportifs</a></li>
+        <li><a href="/happyfit-2021/FINAL/Vue/conseil.html">Nutrition</a></li>
+        <li><a href="/happyfit-2021/FINAL/Vue/suivigraph.html">Suivi activité</a></li>
+        <li><a href="/happyfit-2021/FINAL/Vue/espace_membre.html">Espace membre</a></li>
+        <li><a href="/happyfit-2021/FINAL/Vue/calories.html">Calories dépensées</a></li>
+        <li><a href="/happyfit-2021/FINAL/Vue/imc.html">Calculateur IMC</a></li>
+        <li><a href="/happyfit-2021/FINAL/Vue/map.html">Carte</a></li>
+        <li><a href="/happyfit-2021/FINAL/Vue/index2.html">Se déconnecter</a></li>
+        <!-- ajouter des elements de navigation ici  -->
+    </ul>
+</aside>
+
+<!-- NE PAS TOUCHER  -->
+<div><button data-pushbar-target="left" class="animBarre">
+        <div class="barre"></div>
+        <div class="barre"></div>
+        <div class="barre"></div>
+    </button>
+</div>
+<!-- NE PAS TOUCHER  -->
+<!-- navigation -->
+<div class="btn-nav">
+    <button class="button" id="btnConseil" onclick="window.location.href='conseil.html'">Nos conseils</button>
+    <button class="button" id="btnFicheRepas"onclick="window.location.href='page_fiche_repas.html'">Liste des fiches repas</button>
+    <button class="button" id="btnFormRepas"onclick="window.location.href='formRepas.html'">Créer mon repas</button>
+</div>
+    
+<div id="dateEntered"> Repas ajouté ! </div>
+
+<p class="mainTitle"> Ajouter votre repas !</p>
+<p class="cslRps"><a href="generation.html" class="nostyle">Consulter mes repas :) </a></p>
+<div id="hihi"></div>
+
+<form id="formRepas" data-parsley-validate="">
+
+        <!-- Designation du repas -->
+        <label> Nom du plat : </label>
+        <input id="nom" type="text" maxlength="134" placeholder="Poulet coco..." required data-parsley-trigger="input">
+        
+        <!-- temps de prépa -->
+        <label> Temps de préparation : </label>
+        <input id="temps" type="number"  data-parsley-trigger="input" data-parsley-min="0" data-parsley-max="200" placeholder="164" required >
+        <!-- Ingrédients et Instruction de préparation-->
+        <label> Ingrédients : (séparez les ingrédients par des '-')</label>
+        <input type="text" id="ingre" required data-parsley-trigger="input"  data-parsley-maxlength="300" placeholder="-184g de poulet -194g de noix de coco râpé." spellcheck="true"></input>
+        
+        <label> Recette : </label>
+        <input type="text" id="recette" required data-parsley-trigger="input" data-parsley-maxlength="300"  placeholder="-Mixer la noix de coco puis couper le poulet en tranche -Poivrez." spellcheck="true"></input>
+        
+        <!-- calories/lipides/glucides/proteines -->
+        <label> Calories du repas :</label>    
+        <input id="TotCalorie" type="number"  data-parsley-trigger="input" data-parsley-min="0" data-parsley-max="999" value="0">
+        <label>Glucides :</label>    
+        <input id="glu" type="number" data-parsley-trigger="input" data-parsley-min="0" data-parsley-max="999" value="0">
+        <label> Lipides :</label>    
+        <input id="lip" type="number" data-parsley-trigger="input" data-parsley-min="0" data-parsley-max="999" value="0">
+        <label> Proteines :</label>    
+        <input id="pro" type="number" data-parsley-trigger="input" data-parsley-min="0" data-parsley-max="999" value="0">
+        <label> Utilisateur :</label>
+        <input id="idUti" type="number" data-parsley-trigger="input" data-parsley-min="0" data-parsley-max="999" value="0">
+    <button onclick="ajoutRepas()"> Ajouter mon repas.</button>
+
+</form>
+
+
+<footer>
+    <div id="foot">
+        <p>Happy Fit - 2021 </p>
+        <p>IUT D'orsay</p>
+    </div>
+</footer>	
+
+
+<script type="text/javascript" src="src/pushbar.js"></script>
+<script>
+    const pushbar = new Pushbar({
+    blur: true,
+    overlay: true,
+    });
+</script>
+    <script src="src/initBtnNavigation.js"></script>
+    <script src="/happyfit-2021/api/send.js"></script>
+    <script src="src/jquery-3.6.0.js"></script>
+    <script src="src/parsley.js"></script>
+
+    <script src="src/envoieForm.js"></script>
+</body>
+</html>

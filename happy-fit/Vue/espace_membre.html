@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="FR">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<script src="app.js"></script>
+    <meta name="viewport" content="width=device-width">
+    <link rel="manifest" href="/happyfit-2021/Final/controleur/manifest.webmanifest">
+
+    <link rel="stylesheet" href="../css/styleEspaceMembre.css">
+    <title> Espace Membre. </title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="src/pushbar.css">
+	<link rel="stylesheet" type="text/css" href="src/index-css.css">
+    <script src="http://code.jquery.com/jquery-3.5.1.js"> </script>
+
+</head>
+
+<body>
+<!-- navigation -->
+<aside data-pushbar-id="left" data-pushbar-direction="left">
+    <div class="titleBar">
+        <span data-pushbar-close class="close push_right">
+        </span>
+        <a href="index2_c.html"> Happy'Fit </a>
+    </div>
+
+    <ul class="menu">
+        <li><a href="/happyfit-2021/FINAL/Vue/catalogue_exercice.html">Catalogue exercices</a></li>
+        <li><a href="/happyfit-2021/FINAL/Vue/catalogue_programme.html">Programmes sportifs</a></li>
+        <li><a href="/happyfit-2021/FINAL/Vue/conseil.html">Nutrition</a></li>
+        <li><a href="/happyfit-2021/FINAL/Vue/suivigraph.html">Suivi activité</a></li>
+        <li><a href="/happyfit-2021/FINAL/Vue/espace_membre.html">Espace membre</a></li>
+        <li><a href="/happyfit-2021/FINAL/Vue/calories.html">Calories dépensées</a></li>
+        <li><a href="/happyfit-2021/FINAL/Vue/imc.html">Calculateur IMC</a></li>
+        <li><a href="/happyfit-2021/FINAL/Vue/map.html">Carte</a></li>
+        <li><a href="/happyfit-2021/FINAL/Vue/index2.html">Se déconnecter</a></li>
+        <!-- ajouter des elements de navigation ici  -->
+    </ul>
+</aside>
+
+<!-- NE PAS TOUCHER  -->
+<div><button data-pushbar-target="left" class="animBarre">
+        <div class="barre"></div>
+        <div class="barre"></div>
+        <div class="barre"></div>
+    </button>
+</div>
+<!-- NE PAS TOUCHER  -->
+<!-- navigation -->
+
+    <div class="container">
+        <p class="titre">Espace membre</p>
+        <div id="stepProgressBar">
+            <div class="step">
+                <p class="step-text">Informations </p>
+                <div class="bullet">
+                    <p>1</p>
+                </div>
+            </div>
+            <div class="step">
+                <p class="step-text">Contact</p>
+                <div class="bullet">
+                    <p>2</p>
+                </div>
+            </div>
+            <div class="step">
+                <p class="step-text">mot de passe</p>
+                <div class="bullet">
+                    <p>3</p>
+                </div>
+            </div>
+            <div class="step">
+                <p class="step-text">Niveau</p>
+                <div class="bullet ">
+                    <p>4</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="1" class="contenue">
+
+            <form method="POST" class="form_registration">
+                <div class="encadré">
+                    <label for=""><b>Nom: </b></label>
+                    <div class="mail">
+                        <input id="nom" type="text" name="" readonly>
+                    </div>
+                </div>
+                <div class="encadré">
+                    <label for=""><b>Prenom: </b></label>
+                    <div class="mail">
+                        <input id="prenom" type="text" name="" readonly>
+                    </div>
+                </div>
+                <div class="encadré">
+                    <label for=""><b>Taille(cm): </b></label>
+                    <div class="mail">
+                        <input id="taille" type="text" name="">
+                    </div>
+                </div>
+                <div class="encadré">
+                    <label for=""><b>Poids: </b></label>
+                    <div class="mail">
+                        <input id="poids" type="text" name="">
+                    </div>
+                </div>
+                <div class="encadré">
+                    <label for=""><b>Sexe : </b></label>
+                    <div class="mail">
+                        <input id="sexe" type="text" name="" readonly>
+                    </div>
+                </div>
+                <div class="encadré">
+                    <label for=""><b>date de naissance : </b></label>
+                    <div class="mail">
+                        <input id="dateNaissance" type="date" name="" readonly>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+        <div id="2" class="contenue">
+
+            <form method="POST" class="form_registration">
+                <div class="encadré">
+                    <label for="email"><b>Mail: </b></label>
+                    <div class="mail">
+                        <input id="mail" type="text" name="mail">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div id="3" class="contenue">
+
+            <form method="POST" class="form_registration">
+                <div class="encadré">
+                    <label for="email"><b>Mot de passe: </b></label>
+                    <div class="mail">
+                        <input id="mdp" type="password" name="passwd1">
+                    </div>
+                </div>
+                <div class="encadré">
+                    <label for="email"><b>Confirmez mot de passe: </b></label>
+                    <div class="mail">
+                        <input id="mdp2" type="password" name="passwd2">
+                    </div>
+                    <label for=""><b>Voir mot de passe: </b></label>
+                    <div class="mail">
+                        <input type="checkbox" onclick="showMDP()">
+                    </div>
+
+                </div>
+            </form>
+        </div>
+        <div id="4" class="contenue">
+
+            <form method="POST" class="form_registration">
+                <div class="encadré">
+                    <p> veuillez renseigner votre niveau sportivements parlant</p>
+                </div>
+                <div class="encadré">
+                    <label for="">Type utilisateur : </label>
+                    <select id="mySelect" name="country">
+                        <option value="Amateur" selected>Amateur</option>
+                        <option value="Intermediaire">Intermédiaire</option>
+                        <option value="Professionnel">Professionnel </option>
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div id="main">
+            <p id="content" class="text-center">étape numero : 1</p>
+            <button id="previousBtn">Précedent</button>
+            <button id="nextBtn">Suivant</button>
+            <button id="finishBtn" onclick="terminer()">Terminer</button>
+        </div>
+    </div>
+
+
+	<footer style="margin-top: 20%;">
+		<div id="foot">
+			<p>Happy Fit - 2021 </p>
+			<p>IUT D'orsay</p>
+		</div>
+	</footer>	
+
+
+<script type="text/javascript" src="src/pushbar.js"></script>
+<script>
+    const pushbar = new Pushbar({
+    blur: true,
+    overlay: true,
+    });
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="../../api/get.js"></script>
+<script>
+
+    select("SELECT * FROM utilisateur").then((data) => {
+
+        document.getElementById('prenom').value = data[0].prenom
+        document.getElementById('nom').value = data[0].nom
+        document.getElementById('mail').value = data[0].mail
+        document.getElementById('taille').value = data[0].taille
+        document.getElementById('poids').value = data[0].poids
+        document.getElementById('sexe').value = data[0].sexe
+        document.getElementById('dateNaissance').value = data[0].dateNaissance
+        document.getElementById('sexe').value = data[0].sexe
+        console.log(data[0].mdp)
+        document.getElementById('mdp').value = data[0].mdp
+        document.getElementById('mdp2').value = data[0].mdp
+        var temp = data[0].typeUtilisateur
+        var mySelect = document.getElementById('mySelect')
+
+        for (var i, j = 0; i = mySelect.options[j]; j++) {
+            if (i.value == temp) {
+                mySelect.selectedIndex = j;
+                break;
+            }
+        }
+
+    })
+
+
+
+    function showMDP() {
+
+        var x = document.getElementById("mdp2");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+        var x2 = document.getElementById("mdp");
+        if (x2.type === "password") {
+            x2.type = "text";
+        } else {
+            x2.type = "password";
+        }
+    }
+    const previousBtn = document.getElementById('previousBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const finishBtn = document.getElementById('finishBtn');
+    const content = document.getElementById('content');
+    const bullets = [...document.querySelectorAll('.bullet')];
+
+    const MAX_STEPS = 4;
+    let currentStep = 1;
+    finishBtn.disabled = true
+    previousBtn.disabled = true
+
+    document.getElementById(String(currentStep)).style.display = "block"
+    nextBtn.addEventListener('click', () => {
+        document.getElementById(String(currentStep)).style.display = "none"
+        bullets[currentStep - 1].classList.add('completed');
+        currentStep += 1;
+        document.getElementById(String(currentStep)).style.display = "block"
+        previousBtn.disabled = false;
+        if (currentStep === MAX_STEPS) {
+            nextBtn.disabled = true;
+            finishBtn.disabled = false;
+        }
+
+    });
+
+
+    previousBtn.addEventListener('click', () => {
+        document.getElementById(String(currentStep)).style.display = "none"
+        bullets[currentStep - 2].classList.remove('completed');
+        currentStep -= 1;
+        document.getElementById(String(currentStep)).style.display = "block"
+        nextBtn.disabled = false;
+        finishBtn.disabled = true;
+        if (currentStep === 1) {
+            previousBtn.disabled = true;
+        }
+
+    });
+
+    //finishBtn.addEventListener('click', () => {
+    // location.reload();
+    // });
+
+
+
+
+
+    function terminer() {
+
+        var valider = true;
+        if (document.getElementById('nom').value == "") {
+            alert("veuillez renseigner votre nom")
+            valider = false
+        }
+        if (document.getElementById('prenom').value == "") {
+            alert("veuillez renseigner votre prenom")
+            valider = false
+        }
+        if (document.getElementById('taille').value < 0 || document.getElementById('taille').value > 300 || document.getElementById('taille').value == "") {
+            alert("veuillez renseigner une taille valide")
+            valider = false
+        }
+        if (document.getElementById('poids').value < 0 || document.getElementById('poids').value > 200 || document.getElementById('poids').value == "") {
+            alert("veuillez renseigner une poids valide")
+            valider = false
+        }
+        if (document.getElementById("mdp").value = !document.getElementById("mdp2").value) {
+            alert("les mots de passe ne sont pas similaires")
+            valider = false
+        }
+        if (document.getElementById("email").value == "") {
+            alert("l'adresse mails sont vide")
+            valider = false
+        }
+    }
+</script>
+
+
+</body>
+
+
+
+</html>

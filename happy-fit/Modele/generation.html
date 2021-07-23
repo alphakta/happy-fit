@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="fr-FR" class="bg_site">
+<head>
+	<!-- initialisation -->
+	<meta charset= "utf-8">
+	<meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/style-generation.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <title> Repas Custom. </title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="src/pushbar.css">
+    <link rel="stylesheet" type="text/css" href="src/index-css.css">
+    <link rel="stylesheet" type="text/css" href="src/jquery-3.6.0.js">
+    <script src="/happyfit-2021/api/get.js"></script>
+    <script src="/happyfit-2021/api/createLocalDatabase2.js"></script>
+    <link href="css/style-boutons_nav.css" rel="stylesheet">
+    <script src="src/initBtnNavigation.js"></script>
+
+    <!-- fin initilisation -->
+</head>
+<body>
+<!-- navigation -->
+<aside data-pushbar-id="left" data-pushbar-direction="left">
+    <div class="titleBar">
+        <span data-pushbar-close class="close push_right">
+        </span>
+        <a href="index.html"> Happy'Fit </a>
+    </div>
+
+    <ul class="menu">
+    <li><a href="#about">Inscription</a></li>
+    <li><a href="#prod">Connexion</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <!-- ajouter des elements de navigation ici  -->
+    </ul>
+</aside>
+
+<!-- NE PAS TOUCHER  -->
+<div><button data-pushbar-target="left" class="animBarre">
+        <div class="barre"></div>
+        <div class="barre"></div>
+        <div class="barre"></div>
+    </button>
+</div>
+<!-- NE PAS TOUCHER  -->
+<!-- navigation -->
+    <div class="btn-nav">
+        <button class="button" id="btnConseil" onclick="window.location.href='conseil.html'">Nos conseils</button>
+        <button class="button" id="btnFicheRepas"onclick="window.location.href='page_fiche_repas.html'">Liste des fiches repas</button>
+        <button class="button" id="btnFormRepas"onclick="window.location.href='formRepas.html'">Créer mon repas</button>
+    </div>
+
+    <p class="msRps">Mes repas ! </p> 
+    <div id="hihi"></div>
+
+
+
+
+	<footer>
+		<div id="foot">
+			<p>Happy Fit - 2021 </p>
+			<p>IUT D'orsay</p>
+		</div>
+	</footer>	
+
+
+	<script type="text/javascript" src="src/pushbar.js"></script>
+	<script>
+		const pushbar = new Pushbar({
+		blur: true,
+		overlay: true,
+		});
+	</script>
+		<script src="src/initBtnNavigation.js"type="text/javascript"></script>
+    <script type="text/javascript" src="src/addElems.js"></script>
+    <script type="text/javascript" src="src/initRepasCustom.js"></script>
+    <script type="text/javascript" src="src/miseEnLigne.js"></script>
+    <script> setTimeout(test,100); </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr-FR" class="bg_site">
+<head>    
+    <script src="/happyfit-2021/api/get.js"></script>
+    <script src="/happyfit-2021/api/createLocalDatabase2.js"></script>
+	<!-- initialisation -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="../css/style-form.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css94?family=Roboto&family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/header.css">
+    <link rel="stylesheet" type="text/css" href="../css/footer.css">
+    <link href="../css/style-boutons_nav.css" rel="stylesheet">
+    <title> Crée son repas</title>
+</head>
+<body>
+                <!-- Barre de nav-->
+                <nav>
+                    <ul>
+                        <li><img src="images/logo_b.png" alt="logo" style="height: 104px;margin-right: 114px;margin-left: 124px; "></li> 
+                        <li><a href="#inscription">Inscription</a></li>  
+                        <li><a href="#connexion">Connexion</a></li>
+                        <li><a href="#contact">Nous contacter</a></li>  
+                    </ul>
+                    </nav>
+            <!-- Bouton de navigation - nutrition-->
+            <div class="btn-nav">
+                <button class="button" id="btnConseil"  onclick="window.location.href='conseil.html'">Nos conseils</button>
+                <button class="button" id="btnFicheRepas" onclick="window.location.href='page_fiche_repas.html'">Liste des fiches repas</button>
+                <button class="button" id="btnFormRepas" onclick="window.location.href='formRepas.html'">Créer mon repas</button>
+              </div>
+
+<div id="dateEntered"> Repas ajouté ! </div>
+
+
+<form id="formRepas" data-parsley-validate="">
+
+        <!-- Designation du repas -->
+        <label> Nom du plat : </label>
+        <input id="nom" type="text" maxlength="134" placeholder="Poulet coco..." required data-parsley-trigger="input">
+        
+        <!-- temps de prépa -->
+        <label> Temps de préparation : </label>
+        <input id="temps" type="number"  data-parsley-trigger="input" data-parsley-min="0" data-parsley-max="200" placeholder="164" required >
+        <!-- Ingrédients et Instruction de préparation-->
+        <label> Ingrédients : (séparez les ingrédients par des '-')</label>
+        <input type="text" id="ingre" required data-parsley-trigger="input"  data-parsley-maxlength="300" placeholder="-184g de poulet -194g de noix de coco râpé." spellcheck="true"></input>
+        
+        <label> Recette : </label>
+        <input type="text" id="recette" required data-parsley-trigger="input" data-parsley-maxlength="300"  placeholder="-Mixer la noix de coco puis couper le poulet en tranche -Poivrez." spellcheck="true"></input>
+        
+        <!-- calories/lipides/glucides/proteines -->
+        <label> Calories du repas :</label>    
+        <input id="TotCalorie" type="number"  data-parsley-trigger="input" data-parsley-min="0" data-parsley-max="999" value="0">
+        <label>Glucides :</label>    
+        <input id="glu" type="number" data-parsley-trigger="input" data-parsley-min="0" data-parsley-max="999" value="0">
+        <label> Lipides :</label>    
+        <input id="lip" type="number" data-parsley-trigger="input" data-parsley-min="0" data-parsley-max="999" value="0">
+        <label> Proteines :</label>    
+        <input id="pro" type="number" data-parsley-trigger="input" data-parsley-min="0" data-parsley-max="999" value="0">
+        <label> Utilisateur :</label>
+        <input id="idUti" type="number" data-parsley-trigger="input" data-parsley-min="0" data-parsley-max="999" value="0">
+    <button onclick="ajoutRepas()"> Ajouter mon repas.</button>
+
+</form>
+
+<div onclick="ajouteRepas()"> sdjhdjhjdshjdssdjh </div>
+<footer>
+    <div id="foot">
+    <p> Test Test Test Test </p>
+    <p>Happy Fit - 0334 </p>
+    <p>IUT D'orsay</p>
+    </div>
+    </footer>
+    <script src="src/initBtnNavigation.js"></script>
+    <script src="/happyfit-2021/api/send.js"></script>
+    <script src="src/jquery-3.6.0.js"></script>
+    <script src="src/parsley.js"></script>
+
+    <script src="src/envoieForm.js"></script>
+</body>
+</html>

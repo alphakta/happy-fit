@@ -1,0 +1,121 @@
+.bg_site{
+    margin:0;
+    padding:0;
+    background-color: #65c0ba;
+    color : black;
+    font-size: 110%;
+}
+
+#title{
+    font-size: 130%;
+    font-family: "DotZero";
+    color: #f76262;
+    text-shadow: -1px -1px 20px #2b5f75;
+
+}
+#title1{
+    font-size: 130%;
+    font-family: "DotZero";
+    color: #f76262;
+    text-shadow: -1px -1px 20px #2b5f75;
+
+}
+#title2 {
+    font-size: 100%;
+    font-family: "DotZero";
+    color: rgb(206, 206, 191);
+    margin-left: 15em;
+    text-shadow: 0 0 .4px black, 0 0 1px black, 0 0 .4px black, 0 0 .4px black;
+}
+#title3{
+    font-size: 130%;
+    font-family: "DotZero";
+    color: #f76262;
+    text-shadow: -1px -1px 20px #2b5f75;
+
+}
+
+@font-face {
+    font-family: "DotZero";
+    src: url('../fonts/DotZero.ttf');
+   }
+   
+@font-face {
+    font-family: "Walkway";
+    src: url("../fonts/Walkway.ttf") format("truetype");
+   }
+
+
+#box{
+    min-height: 30.5em;
+    width: 22em;
+    background-image: url('../images/bg.png');
+    padding: 1%;
+}
+#box2{
+    min-height: 30.5em;
+    width: 22em;
+    background-image: url('../images/bg.png');
+    padding: 1%;
+    margin-left: 25em;
+    margin-top: -25em;
+}
+.posTit{
+    font-family: "DotZero";
+
+    
+}
+
+.posTime{
+    font-family: "DotZero";
+    font-size: larger;
+    margin: 2em;
+    margin-right: 0 auto;
+
+    
+}
+.postest{
+    font-family: "DotZero";
+
+    margin-top: 5em;
+    color: teal ;
+}
+
+#boxText{
+    max-width: 18em;
+    max-height: 20em;
+    word-wrap: break-word;
+    font-family: 'Walkway';
+    font-size: 100%;
+    color: black;
+}
+#boxText2{
+    max-width: 12em;
+    max-height: 20em;
+    word-wrap: break-word;
+    font-family: 'Walkway';
+    font-size: 100%;
+    color: black;
+    padding: 0.5em;
+}
+
+.test{
+    display: flex;
+    float: left;
+}
+
+#reccetteList{
+    font-size: 75%;
+}
+
+
+#titleCal{
+    font-size: 80%;
+    font-family: "DotZero";
+    color: black;
+}
+
+#textBoxCal{
+    font-family: 'Walkway';
+    float: right;
+}

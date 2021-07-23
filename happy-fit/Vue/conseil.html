@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="fr-FR" class="bg_site">
+<head>
+	<!-- initialisation -->
+	<meta charset= "utf-8">
+	<meta name="viewport" content="width=device-width">
+		<script src="app.js"></script>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<link rel="manifest" href="manifest.webmanifest">
+    <link rel="stylesheet" type="text/css" href="css/style-conseil.css">
+	<link rel="stylesheet" type="text/css" href="css/header.css">
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <link href="css/style-boutons_nav.css" rel="stylesheet">		
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css16?family=Roboto&family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <title> Conseil Nutrition</title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="src/pushbar.css">
+	<link rel="stylesheet" type="text/css" href="src/index-css.css">
+    <script src="http://code.jquery.com/jquery-3.5.1.js"> </script>
+    <link href="css/style-boutons_nav.css" rel="stylesheet">
+    <script src="src/initBtnNavigation.js"></script>
+
+	<!-- fin initilisation -->
+</head>
+<body>
+<!-- navigation -->
+	<!-- NE PAS TOUCHER  -->
+    <aside data-pushbar-id="left" data-pushbar-direction="left">
+		<div class="titleBar">
+		<span data-pushbar-close class="close push_right">
+		</span>
+		<a href="index2_c.html"> Happy'Fit </a>
+		</div>
+		<!-- NE PAS TOUCHER  -->
+		<ul class="menu">
+            <li><a href="/happyfit-2021/FINAL/Vue/catalogue_exercice.html">Catalogue exercices</a></li>
+            <li><a href="/happyfit-2021/FINAL/Vue/catalogue_programme.html">Programmes sportifs</a></li>
+            <li><a href="/happyfit-2021/FINAL/Vue/conseil.html">Nutrition</a></li>
+            <li><a href="/happyfit-2021/FINAL/Vue/suivigraph.html">Suivi activité</a></li>
+            <li><a href="/happyfit-2021/FINAL/Vue/espace_membre.html">Espace membre</a></li>
+            <li><a href="/happyfit-2021/FINAL/Vue/calories.html">Calories dépensées</a></li>
+            <li><a href="/happyfit-2021/FINAL/Vue/imc.html">Calculateur IMC</a></li>
+            <li><a href="/happyfit-2021/FINAL/Vue/map.html">Carte</a></li>
+            <li><a href="/happyfit-2021/FINAL/Vue/index2.html">Se déconnecter</a></li>
+            <!-- ajouter des elements de navigation ici  -->
+        </ul>
+	</aside>
+
+	<!-- NE PAS TOUCHER  -->
+	<div><button data-pushbar-target="left" class="animBarre">
+			<div class="barre"></div>
+			<div class="barre"></div>
+			<div class="barre"></div>
+		</button>
+	</div>
+	<!-- NE PAS TOUCHER  -->
+<!-- navigation -->
+<div class="btn-nav">
+    <button class="button" id="btnConseil" onclick="window.location.href='conseil.html'">Nos conseils</button>
+    <button class="button" id="btnFicheRepas" onclick="window.location.href='page_fiche_repas.html'">Liste des fiches repas</button>
+    <button class="button" id="btnFormRepas" onclick="window.location.href='formRepas.html'">Créer mon repas</button>
+</div>
+
+<p class="title"> Nos conseils nutrition ! </p>
+
+<div class="banner-full-size"> <!-- Bannière de pub, idéalement pour faire des sponsos-->
+</div>
+
+<div class="Select"> 
+   
+        <div class="container">
+            <p> Conseils pour <span class="enAvant"> perdre du poids</span></p>
+            <a href="#PDP">  
+                <img class="imgSelect" src="images/perte.png" alt="icon">
+            </a>  
+        </div>
+
+        <div class="container">
+            <p> Conseils pour <span class="enAvant"> prendre du poids </span></p> 
+            <a href="#GP">  
+                <img class="imgSelect" src="images/pdm.png" alt="icon20">
+             </a>  
+        </div>
+</div>
+
+<a href="#GP" class="arrow down">Down</a>
+
+
+
+<div id="GP" class="gainPoid">
+    <p class="bigTitle"> Gagner du poids et du muscle ! </p>
+    <p class="lilTitle"> 1. Diviser les repas </p> <!-- 6 conseils en tout a mettre en tant que titre de manière jolie-->
+    <p> Pour prendre du poids avec un métabolisme rapide diviser ses repas est la meilleure solution. <!-- Text détaillant le conseille,-->
+        Cela permet à votre métabolisme de ne pas avoir assez de temps entre deux repas pour tout éliminer.
+        Il est, de ce fait, préférable de prendre plusieurs collation par jour, sous forme de Gainer Protéinée, ou même de plat plus traditionnels, tels que des haricots vert et de la dinde.
+    </p>
+    <p class="lilTitle"> 2. Priviliger un bon cycle de sommeil </p> <!-- 6 conseils en tout a mettre en tant que titre de manière jolie-->
+    <p> Le sommeil est très important afin de réparer et de constuire de nouvelles fibres musculaires, plus resistante et plus forte. <!-- Text détaillant le conseille,-->
+        De plus c'est lors du cycle de sommeil profond que le corps va générer des hormones qui permette la construction musculaire, mais aussi la croissances de ceux-ci.
+        Ces hormones étant toujours regler pour être diffusé à la même heure, une fois cette heure dépasser il est trop tard. 
+        Il est très important de toujours garder le même cycle de sommeil, et de dormir suffisamment chaque soir.
+    </p>
+    <p class="lilTitle"> 3. Surveiller ses calories </p> <!-- 6 conseils en tout a mettre en tant que titre de manière jolie-->
+    <p> Il est important de consommé plus de calories que ce que l'on a dépenser pour prendre du poids.<!-- Text détaillant le conseille,-->
+        Le calcul des calories peut être compliqué, mais grâce à notre calculateur, tout est fait automatiquement.
+        Vous pourrez ainsi garder un oeil directement sur les calories dont vous avez besoin et ajuster si besoin grace au repas propsé.
+    </p>
+    <p class="lilTitle"> 4. Des series courtes et intence </p> <!-- 6 conseils en tout a mettre en tant que titre de manière jolie-->
+    <p> Rien ne sert de faire de longues série si le but et de faire du muscle. <!-- Text détaillant le conseille,-->
+        En effet, les longues série ne construit pas le même type de fibre musculaire...
+        Si le but est de prendre du poids, et du muscle il faut favorisé la croissances des fibres musculaires de type IIb.
+        En d'autre terme, il faut priviligé les exercices, <b>court</b>, <b>inense</b> et <b>explosif</b>.
+    </p>
+    <p class="lilTitle">5. Les fruits à coque ! </p> <!-- 6 conseils en tout a mettre en tant que titre de manière jolie-->
+    <p> Les fruits à coques sont définitivement vos meilleurs aliés sur votre but et de prendre du poids et en muscle. <!-- Text détaillant le conseille,-->
+        Les fruits à coque prossède de nombreuses propri"t"s intéressante pour la musculation.
+        Un haut apport en lipides qui ne sont pas des acides gras saturés ce qui permet de construire du muscle plus facilement.
+        Sans oublié les précieuses protéines qui sont très prriser par les haltérophiles..
+    </p>
+    <p class="lilTitle"> 6. Arrêter les boissons alcoolisés ! </p> <!-- 6 conseils en tout a mettre en tant que titre de manière jolie-->
+    <p> L'alcool ayant des propriétés catabolisantes, la consommation participe à la destruction des fibres musculaires si durement acquis.<!-- Text détaillant le conseille,-->
+        Cela peut répresenter un vrai problème lorsque que le gain de muscle commence à être difficile, il serait dommage de boire et de tout perdre.
+        A la place buvez de l'eau, des jus frais, qui ne pourrait qu'aider vos muscles a grossir.
+    </p>
+</div>
+
+<div id="PDP" class="pertePoid">
+    <p class="bigTitle"> Perdre du poids et gagner du muscle ! </p>
+
+    <p class="lilTitle"> 1. Espacer les repas </p> <!-- 6 conseils en tout a mettre en tant que titre de manière jolie-->
+    <p> Pour prendre du poids avec un métabolisme rapide diviser ses repas est la meilleure solution. <!-- Text détaillant le conseille,-->
+        Cela permet à votre métabolisme de ne pas avoir assez de temps entre deux repas pour tout éliminer.
+        Il est, de ce fait, préférable de prendre plusieurs collation par jour, sous forme de Gainer Protéinée, ou même de plat plus traditionnels, tels que des haricots vert et de la dinde.
+    </p>
+    <p class="lilTitle"> 2. Priviliger un bon cycle de sommeil </p> <!-- 6 conseils en tout a mettre en tant que titre de manière jolie-->
+    <p> Le sommeil est très important afin de réparer et de constuire de nouvelles fibres musculaires, plus resistante et plus forte. <!-- Text détaillant le conseille,-->
+        De plus c'est lors du cycle de sommeil profond que le corps va générer des hormones qui permette la construction musculaire, mais aussi la croissances de ceux-ci.
+        Ces hormones étant toujours regler pour être diffusé à la même heure, une fois cette heure dépasser il est trop tard. 
+        Il est très important de toujours garder le même cycle de sommeil, et de dormir suffisamment chaque soir.
+    </p>
+    <p class="lilTitle"> 3. Ne pas sauter de repas </p> <!-- 6 conseils en tout a mettre en tant que titre de manière jolie-->
+    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. <!-- Text détaillant le conseille,-->
+        Vivamus at ultricies quam, nec ultrices nunc. In lacinia tellus in ante egestas accumsan nec sit amet velit. Ut sollicitudin sagittis porttitor.
+        In auctor urna vitae rhoncus eleifend. Cras finibus augue in mollis sagittis. In vitae placerat orci. Donec sit amet elit sem.
+    </p>
+    <p class="lilTitle"> 4. S'autoriser un cheat meal </p> <!-- 6 conseils en tout a mettre en tant que titre de manière jolie-->
+    <p> Rien ne sert de faire de longues série si le but et de faire du muscle. <!-- Text détaillant le conseille,-->
+        En effet, les longues série ne construit pas le même type de fibre musculaire...
+        Si le but est de prendre du poids, et du muscle il faut favorisé la croissances des fibres musculaires de type IIb.
+        En d'autre terme, il faut priviligé les exercices, <b>court</b>, <b>inense</b> et <b>explosif</b>.
+    </p>
+    <p class="lilTitle"> 5. Cardio, cardio et cardio ! </p> <!-- 6 conseils en tout a mettre en tant que titre de manière jolie-->
+    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. <!-- Text détaillant le conseille,-->
+        Vivamus at ultricies quam, nec ultrices nunc. In lacinia tellus in ante egestas accumsan nec sit amet velit. Ut sollicitudin sagittis porttitor.
+        In auctor urna vitae rhoncus eleifend. Cras finibus augue in mollis sagittis. In vitae placerat orci. Donec sit amet elit sem.
+    </p>
+    <p class="lilTitle"> 6. Superset & Biset  ! </p> <!-- 6 conseils en tout a mettre en tant que titre de manière jolie-->
+    <p> L'alcool ayant des propriétés catabolisantes, la consommation participe à la destruction des fibres musculaires si durement acquis.<!-- Text détaillant le conseille,-->
+        Cela peut répresenter un vrai problème lorsque que le gain de muscle commence à être difficile, il serait dommage de boire et de tout perdre.
+        A la place buvez de l'eau, des jus frais, qui ne pourrait qu'aider vos muscles a grossir
+    </p>
+</div>
+
+
+<!-- Footer -->
+<footer>
+    <div id="foot">
+        <p>Happy Fit - 2021 </p>
+        <p>IUT D'orsay</p>
+    </div>
+</footer>	
+
+<script type="text/javascript" src="src/pushbar.js"></script>
+<script>
+    const pushbar = new Pushbar({
+    blur: true,
+    overlay: true,
+    });
+</script>
+<script src="src/initBtnNavigation.js"></script>
+</body>	
+</html>

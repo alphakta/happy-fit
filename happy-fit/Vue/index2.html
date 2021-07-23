@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="fr-FR" class="bg_site">
+<head>
+	<!-- initialisation -->
+	<meta charset= "utf-8">
+	<meta name="viewport" content="width=device-width">
+	<script src="app.js"></script>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link rel="manifest" href="manifest.webmanifest">
+    <script src="http://code.jquery.com/jquery-3.5.1.js"> </script>
+    <title> Happy Fit. </title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="shortcut icon" href="logo.ico">
+    <link rel="stylesheet" type="text/css" href="src/pushbar.css">
+	<link rel="stylesheet" type="text/css" href="src/index-css.css">
+    <script src="http://code.jquery.com/jquery-3.5.1.js"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/happyfit-2021/FINAL/css/style_index2.css">
+	<!-- fin initilisation -->
+</head>
+
+
+<body>
+<!-- navigation -->
+	<!-- NE PAS TOUCHER  -->
+		<aside data-pushbar-id="left" data-pushbar-direction="left">
+		<div class="titleBar">
+		<span data-pushbar-close class="close push_right">
+		</span>
+		<a href="index2.html"> Happy'Fit </a>
+		</div>
+		<!-- NE PAS TOUCHER  -->
+
+		<ul class="menu">
+		<li><a href="inscription.html">Inscription</a></li>
+		<li><a href="connexion.html">Connexion</a></li>
+		<li><a href="#">Contact</a></li>
+		<!-- ajouter des elements de navigation ici  -->
+		</ul>
+	</aside>
+
+	<!-- NE PAS TOUCHER  -->
+	<div><button data-pushbar-target="left" class="animBarre">
+			<div class="barre"></div>
+			<div class="barre"></div>
+			<div class="barre"></div>
+		</button>
+	</div>
+	<!-- NE PAS TOUCHER  -->
+<!-- navigation -->
+
+
+	<div class="mainTitle">
+		<p><span class="typed"></span></p>
+	</div>
+		
+	<img src="../images/acc.jpg" class="imgBG" alt="acc" id="acc">
+
+
+	<div class="box1">
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum purus mollis, facilisis turpis eget, 
+		efficitur purus. Mauris iaculis cursus vulputate. Aliquam lobortis blandit augue vel viverra. Morbi ultrices bibendum consectetur. 
+		Vestibulum sit amet tortor metus. Donec in metus vitae nisl pellentesque viverra ut id diam. Sed vel efficitur est, nec egestas turpis. 
+		Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin lacinia, purus mollis vehicula commodo, 
+		nisi sapien finibus dui, vitae porta orci nisl a dui. Suspendisse iaculis gravida elit, at porta lacus faucibus quis.
+	</div>
+
+	<footer>
+		<div id="foot">
+			<p>Happy Fit - 2021 </p>
+			<p>IUT D'orsay</p>
+		</div>
+	</footer>			  
+
+	<script type="text/javascript" src="src/pushbar.js"></script>
+	<script>
+		const pushbar = new Pushbar({
+		blur: true,
+		overlay: true,
+		});
+	</script>
+	<script>
+		var typed = new Typed(".typed", {
+		strings: [
+			"A vos marques?",
+			"Prêt?",
+			"Partez !",
+			"Rejoignez l'aventure !",
+			"Rejoignez Happy Fit !"
+		],
+		backSpeed: 10,
+		typeSpeed: 65,
+		startDelay: 0,
+		});
+	</script>
+</body>
+
+</html>
